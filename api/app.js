@@ -11,7 +11,11 @@ app.get('/', function (req, res) {
 
 const runServer = (port) => {
     app.listen(port);
+<<<<<<< HEAD
     console.log('serv up')
+=======
+    console.log('Server start at http://localhost:' + port)
+>>>>>>> 80f1117d8d4faf2fd16995f341cda7bf9e517ac2
 };
 
 module.exports = {
