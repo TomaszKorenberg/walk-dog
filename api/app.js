@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 
 const runServer = (port) => {
     app.listen(port);
-    console.log('Server start at http://localhost:', port)
+    console.log('Server start at http://localhost:' + port)
 };
 
 module.exports = {
