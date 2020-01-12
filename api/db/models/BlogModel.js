@@ -44,8 +44,10 @@ getBlog = (id) => {
     WHERE id = ${id}
     `;
 
-    return connection.query(sql.then(response) => response.rows.map(BlogModel));
-
-
+    return connection.query(sql).then((response) => response.rows.map(BlogModel));
 };
+
+getUser(1).then((response) => console.log(response));
+
+
 module.exports = {getBlog, getBlogs};
