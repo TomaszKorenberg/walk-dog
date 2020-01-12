@@ -15,10 +15,6 @@ const insertBlog = () => {
     return connection.query(sql)
 };
 
-insertBlog();
-
-
-
 const BlogModel = (row) => ({
     id: row.id, 
     header: row.header,
@@ -47,7 +43,7 @@ getBlog = (id) => {
     return connection.query(sql).then((response) => response.rows.map(BlogModel));
 };
 
-getUser(1).then((response) => console.log(response));
+getBlog(1).then((response) => console.log(response));
 
 
 module.exports = {getBlog, getBlogs};
