@@ -17,3 +17,35 @@ const insertBlog = () => {
 
 insertBlog();
 
+
+
+const BlogModel = (row) => ({
+    id: row.id, 
+    header: row.header,
+    article: row.article,
+    author: row.author
+}); 
+
+
+const getBlogs = () => {
+    const sql = `
+    SELECT * FROM ${tableName}
+    `;
+    return connection.query(sql).then((response) =>
+    response.rows.map(BlogModel)
+    );
+};
+
+//getBlog().then((results) => result[0])
+
+getBlog = (id) => {
+    const sql = `
+    SELECT * FROM ${tableName}
+    WHERE id = ${id}
+    `;
+
+    return connection.query(sql.then(response) => response.rows.map(BlogModel));
+
+
+};
+module.exports = {getBlog, getBlogs};
