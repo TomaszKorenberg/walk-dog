@@ -45,5 +45,4 @@ getBlog = (id) => {
 
 getBlog(1).then((response) => console.log(response));
 
-
 module.exports = {getBlog, getBlogs};
