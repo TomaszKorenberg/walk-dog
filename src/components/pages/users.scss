@@ -1,0 +1,33 @@
+* {
+  max-resolution: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: SansSerif;
+
+  #formDiv {
+    h2{
+      display: block;
+      text-align: justify;
+    }
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    display: flex;
+    align-items: flex-start;
+    max-width: 1024px;
+    min-height: 70%;
+    border: solid black 0.25rem;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    form {
+
+    }
+  }
+}
+
+
