@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./users.scss";
+import "./RegisterPage.scss";
 
 const RegisterPage = () => {
 

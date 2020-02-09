@@ -1,56 +1,8 @@
-$main_color: #452191;
-$font_color: whitesmoke;
-$gradient_left:#452191;
-$gradient_center:#1C6EA4;
-$gradient_right:#6331C5;
-
-
-.container{
-    left: 25%;
-    background: -moz-linear-gradient(45deg, $gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
-    background: -webkit-linear-gradient(45deg,$gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
-    background: linear-gradient(45deg, $gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
-}
-
-fieldset{
-width: 50vw;
-height: 25vh;
-margin:15%;
-border: none;
-}
-
-legend{
-    font-weight: bold;
-    color: $font_color;
-}
-
-
 form {
     display: grid;
-    position: fixed;
-    height: 15vh;
-    width: 20vw; 
-    margin: 1%;      
+    width: 20vw;
   }
 
-  button{
-      border: 1px solid $main_color;
 
-      background: -moz-linear-gradient(45deg, $gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
-      background: -webkit-linear-gradient(45deg,$gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
-      background: linear-gradient(45deg, $gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
 
-      border-radius: 50%;
-      height: 5vh;
-      margin:2px;
-      color: $font_color;
-  }
-  input{
-    border: 1px solid $main_color;
-    background-color:$main_color;
-    border-radius: 10%;
-    height: 5vh;
-    margin:2px;
-    color: $font_color;
-  }
 
