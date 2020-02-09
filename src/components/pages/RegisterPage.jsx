@@ -16,11 +16,11 @@ const RegisterPage = () => (
                    street name: <input type="text" />
                    street number <input type="number"/>
                    local number <input type="number"/>
+                        <div> gender: Male <input type="radio" name="gender" value="male"/> Female
+                            <input type="radio" name="gender" value="female"/> other
+                            <input type="radio" name="gender" value="other"/></div>
 
-                   gender: Male <input type="radio" name="gender" value="male"/> Female
-                                <input type="radio" name="gender" value="female"/> other
-                                <input type="radio" name="gender" value="other"/>
-
+                <button>sing in!</button>
             </form>
 
 </div>
