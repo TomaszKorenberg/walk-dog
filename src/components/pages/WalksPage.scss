@@ -1,12 +1,15 @@
 $main_color: #452191;
 $font_color: whitesmoke;
-$main_gradient: (45deg, $main_color 0%, #1C6EA4 50%, #6331C5 100%);
+$gradient_left:#452191;
+$gradient_center:#1C6EA4;
+$gradient_right:#6331C5;
+
 
 .container{
     left: 25%;
-    background: -moz-linear-gradient(45deg, $main_color 0%, #1C6EA4 50%, #6331C5 100%);
-    background: -webkit-linear-gradient(45deg,$main_color 0%, #1C6EA4 50%, #6331C5 100%);
-    background: linear-gradient(45deg, $main_color 0%, #1C6EA4 50%, #6331C5 100%);
+    background: -moz-linear-gradient(45deg, $gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
+    background: -webkit-linear-gradient(45deg,$gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
+    background: linear-gradient(45deg, $gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
 }
 
 fieldset{
@@ -27,14 +30,16 @@ form {
     position: fixed;
     height: 15vh;
     width: 20vw; 
-    margin: 1%;  
+    margin: 1%;      
   }
-
-
 
   button{
       border: 1px solid $main_color;
-      background-color:$main_gradient;
+
+      background: -moz-linear-gradient(45deg, $gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
+      background: -webkit-linear-gradient(45deg,$gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
+      background: linear-gradient(45deg, $gradient_left 0%, $gradient_center 50%, $gradient_right 100%);
+
       border-radius: 50%;
       height: 5vh;
       margin:2px;
