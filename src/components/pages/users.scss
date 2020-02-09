@@ -1,8 +1,8 @@
 * {
-  max-resolution: 0;
+ margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: SansSerif;
+
 
   #formDiv {
 
@@ -14,7 +14,7 @@
     display: flex;
     align-items: flex-start;
     max-width: 1024px;
-    min-height: 70%;
+    padding: 10px;
     border: solid black 0.25rem;
     border-radius: 10px;
     flex-wrap: wrap;
@@ -32,7 +32,9 @@
       flex-direction: column;
       margin: 0.25rem 1rem;
 
-
+      button{
+        margin: 10px;
+      }
     }
   }
 }
