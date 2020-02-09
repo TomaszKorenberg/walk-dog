@@ -19,7 +19,7 @@ const App = () => {
   return (
     <Router>
         <Header/>
-        <main>
+        <main style={{marginTop:80, minHeight:200}}>
             <Switch>
                 <Route exact path={"/"}><DashboardPage/></Route>
                 <Route exact path={"/login"}><LoginPage/></Route>
