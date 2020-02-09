@@ -14,6 +14,8 @@ const runServer = (port) => {
     console.log('Server start at http://localhost:' + port)
 };
 
+require('./routes/user')(app);
+
 module.exports = {
     runServer
 };

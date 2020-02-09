@@ -25,5 +25,12 @@ const getUser = (id) => {
     return connection.query(sql).then((response) => response.rows);
 };
 
+const checkUser = (email, password) => {
+    const sql = `
+    SELECT * FROM ${tableName} WHERE email = ${email} and password_hash = ${password};
+    `;
+    return connection.query(sql).then((response) => response.rows);
+};
 
-module.exports = {getUsers, getUser};
+
+module.exports = {getUsers, getUser, checkUser};
