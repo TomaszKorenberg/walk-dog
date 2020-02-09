@@ -1,10 +1,9 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 const Footer = () => (
     <footer>
-        <div>
-
+        <div className={"footer-div"}>
+        To jest footer
         </div>
     </footer>
 );
