@@ -1,0 +1,51 @@
+$main_color: #452191;
+$font_color: whitesmoke;
+$main_gradient: (45deg, $main_color 0%, #1C6EA4 50%, #6331C5 100%);
+
+.container{
+    left: 25%;
+    background: -moz-linear-gradient(45deg, $main_color 0%, #1C6EA4 50%, #6331C5 100%);
+    background: -webkit-linear-gradient(45deg,$main_color 0%, #1C6EA4 50%, #6331C5 100%);
+    background: linear-gradient(45deg, $main_color 0%, #1C6EA4 50%, #6331C5 100%);
+}
+
+fieldset{
+width: 50vw;
+height: 25vh;
+margin:15%;
+border: none;
+}
+
+legend{
+    font-weight: bold;
+    color: $font_color;
+}
+
+
+form {
+    display: grid;
+    position: fixed;
+    height: 15vh;
+    width: 20vw; 
+    margin: 1%;  
+  }
+
+
+
+  button{
+      border: 1px solid $main_color;
+      background-color:$main_gradient;
+      border-radius: 50%;
+      height: 5vh;
+      margin:2px;
+      color: $font_color;
+  }
+  input{
+    border: 1px solid $main_color;
+    background-color:$main_color;
+    border-radius: 10%;
+    height: 5vh;
+    margin:2px;
+    color: $font_color;
+  }
+
