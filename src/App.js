@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
     BrowserRouter as Router,
@@ -7,24 +6,29 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import Header from "./components/Header";
+import DashboardPage from "./components/pages/DashboardPage";
+import WalksPage from "./components/pages/WalksPage";
+import LoginPage from "./components/pages/LoginPage";
+import ProfilePage from "./components/pages/ProfilePage";
+import RegisterPage from "./components/pages/RegisterPage";
+import Footer from "./components/Footer";
 
-function App() {
+
+const App = () => {
   return (
     <Router>
-        <header>
-            <Link to={"/"}>Do niczego</Link>
-            <Link to={"/test"}>Do testu</Link>
-        </header>
+        <Header/>
         <main>
             <Switch>
-                <Route exact path={"/"}>
-                    <h1>Do niczego</h1>
-                </Route>
-                <Route exact path={"/test"}>
-                    <h1>Teeeeest</h1>
-                </Route>
+                <Route exact path={"/"}><DashboardPage/></Route>
+                <Route exact path={"/login"}><LoginPage/></Route>
+                <Route exact path={"/register"}><RegisterPage/></Route>
+                <Route exact path={"/profile"}><ProfilePage/></Route>
+                <Route exact path={"/walks"}><WalksPage/></Route>
             </Switch>
         </main>
+        <Footer/>
     </Router>
   );
 }
