@@ -1,11 +1,12 @@
 const connection = require("../connection.js");
 const tableName = "users";
 
-const insertUser = () => {
+const insertUser = (userData) => {
     const sql = `
       INSERT INTO ${tableName}
       VALUES (
-          DEFAULT, 'email@test.pl', 'password_salt', 'password_hash', 'imie', 'nazwisko', 'polska', 'warszawa', '00-000', 'region', 'ulica', '11', '7a', POINT(32.3, 12.4), 'gender'
+          DEFAULT, '${userData.email}', '${userData.password}', '${userData.password}',
+           '${userData.name}', '${userData.surname}'
       )
       `;
     return connection.query(sql);
