@@ -32,7 +32,7 @@ const RegisterPage = () => {
         e.preventDefault();
         if (
             !isEmailFormatCorrect(email)
-            || !isPasswordFormatCorrect(password)
+         //   || !isPasswordFormatCorrect(password)
             || !arePasswordsEqual()
         ) {
             return setIsEmailValid(false);

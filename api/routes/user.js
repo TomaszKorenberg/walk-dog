@@ -1,19 +1,14 @@
 const userModel = require('../db/models/UserModel')
+const jwt = require('jsonwebtoken')
+
 
 module.exports = (app) => {
-    app.post('/user/login', function (req, res) {
-        //1. Select z bazy na podstawie emaila
-        try{
-            userModel.checkUserByEmail(req.body.email);
-        } 
-        catch(err) {
-            alert(err)
-        }
-        
-        //2. Porównanie hasła 
-        //3. Wygenerowanie tokena 
-        console.log(req.body);
-        return res.send(req.body);
+    app.post('/user/login', (req, res) => {
+        userModel.checkUserByEmail(req.body.email)
+            .then(res => console.log(res[0].password_salt === req.body.password))
+
+        //3. Wygenerowanie tokena
+
     })
 
     app.post("/user/register", (req, res) =>{
