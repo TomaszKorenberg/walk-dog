@@ -34,7 +34,7 @@ const getBlogs = () => {
 
 //getBlog().then((results) => result[0])
 
-getBlog = (id) => {
+const getBlog = (id) => {
     const sql = `
     SELECT * FROM ${tableName}
     WHERE id = ${id}

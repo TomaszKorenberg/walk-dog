@@ -37,14 +37,13 @@ const LoginPage = () => {
                 }
             ).then((response) => response.json()).then(({ token }) => {
                 setToken(token);
-                console.log(getToken());
                 window.location.href="./walks";
                 //todo: zrobic obsluge blednego logowania
             })
         } else {
             setIsEmailValid(false);
         }
-    }
+    };
 
 
     return (

@@ -30,17 +30,16 @@ module.exports = (app) => {
 
 
 
-    })
+    });
 
     app.post("/user/register", (req, res) => {
         userModel
             .insertUser(req.body)
             .catch(err => res.status(400).send(err))
             .then((result) => {
-                console.log(result);
                 res.send({status: "OK"});
             })
     });
 
-}
+};
 

@@ -39,15 +39,15 @@ const WalksPage = () => {
         <fieldset>
                 <form>
                     <label htmlFor="dog_name_field">Dog name</label>
-                    <input type="text" id="dog_name" name="dog_name" type="text" onChange={onDogNameChange}/>
+                    <input type="text" id="dog_name" name="dog_name" onChange={onDogNameChange}/>
                     <label htmlFor="date_field">Date of walk</label>  
-                    <input type="text" name="date" type="text" onChange={onDateChange}/>
+                    <input type="text" name="date" onChange={onDateChange}/>
                     <label htmlFor="hour_field">Hour of walk</label>  
-                    <input type="text" name="hour" type="text" onChange={onHourChange}/>
+                    <input type="text" name="hour" onChange={onHourChange}/>
                     <label htmlFor="place_field">Place of walk</label>  
-                    <input type="text" name="place" type="text" onChange={onPlaceChange}/>
+                    <input type="text" name="place" onChange={onPlaceChange}/>
                     <label htmlFor="Description">Description of walk</label>
-                    <input type="text" name="description" type="text" onChange={onDescriptionChange}/>
+                    <input type="text" name="description" onChange={onDescriptionChange}/>
                     <button onClick={onSubmit}>Zapisz</button>
                 </form>
         </fieldset>

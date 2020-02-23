@@ -9,9 +9,9 @@ const insertWalk = (walkData) =>{
     )
     `;
   return connection.query(sql); 
-}
+};
 
-const getWalks = () => {WalksModel.js
+const getWalks = () => {
     const sql = `
     SELECT * FROM ${tableName};
     `;

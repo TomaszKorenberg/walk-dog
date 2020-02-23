@@ -5,20 +5,9 @@ const {authenticationMiddleware} = require('../utils/token');
 module.exports = (app) => {
     app.post('/walks', [authenticationMiddleware], function (req, res) {
         insertWalk(req.body)
-            .catch(err =>res.status(400).send(error))
+            .catch(err =>res.status(400).send(err))
             .then(() =>{
                 res.send({status:"ok"})});
 
     });
-}
-
-
-// app.post("/user/register", (req, res) => {
-//     userModel
-//         .insertUser(req.body)
-//         .catch(err => res.status(400).send(err))
-//         .then((result) => {
-//             console.log(result);
-//             res.send({status: "OK"});
-//         })
-// });
+};

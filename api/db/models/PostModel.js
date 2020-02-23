@@ -1,5 +1,5 @@
 const connection = require('../connection');
-const tableName = 'Post'
+const tableName = 'Post';
 
 const PostModel = (row) => ({
     id: row.id,
@@ -9,7 +9,7 @@ const PostModel = (row) => ({
     date: row.date
 });
 
-getPost = (userId) => {
+const getPost = (userId) => {
     const sql = `
     SELECT * FROM ${tableName}
     WHERE 

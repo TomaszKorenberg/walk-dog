@@ -1,4 +1,4 @@
-import "../DashboardPage.scss";
+import "./DashboardPage.scss";
 import React from "react";
 
 
