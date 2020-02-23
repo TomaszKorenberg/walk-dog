@@ -31,6 +31,7 @@ const checkUserByEmail = (email) => {
     const sql = `
     SELECT password_salt FROM ${tableName} WHERE email = '${email}';
     `;
+    console.log(sql)
     return connection.query(sql);
 };
 
