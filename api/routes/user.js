@@ -16,7 +16,7 @@ module.exports = (app) => {
                             res.status(401).send();
                             console.log(err)
                         } else {
-                            console.log(token)
+
                             res.send({token: token})
                         }
                     };

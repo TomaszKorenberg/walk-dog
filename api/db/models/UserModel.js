@@ -27,7 +27,6 @@ const getUser = (id) => {
 };
 
 const checkUserByEmail = (email) => {
-    console.log(email+" testowy");
     const sql = `
     SELECT password_salt FROM ${tableName} WHERE email = '${email}';
     `;

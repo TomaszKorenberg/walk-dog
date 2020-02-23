@@ -5,5 +5,6 @@ Create table walks (
   hour varchar (32),
   dogname varchar (32),
   description varchar (32),
+  user_id integer,
   primary key (id)
 )

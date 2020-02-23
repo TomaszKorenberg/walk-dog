@@ -1,13 +1,15 @@
 const connection = require("../connection.js");
 const tableName = "walks";
 
-const insertWalk = ({place, date, hour, dogName, description}) =>{
+const insertWalk = (walkData) =>{
     const sql = `
     INSERT INTO ${tableName}
     VALUES (
-        DEFAULT, 'miejsce', 'dd-mm-yyyy', 'hh:mm','imię psa', 'info'
+        DEFAULT, '${walkData.place}', '${walkData.date}', '${walkData.hour}','${walkData.dogName}', '${walkData.description}', 4
     )
     `;
+    console.log(sql)
+
   return connection.query(sql); 
 }
 
