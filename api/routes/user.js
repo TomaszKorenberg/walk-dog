@@ -1,26 +1,31 @@
 const userModel = require('../db/models/UserModel')
-const jwt = require('jsonwebtoken')
+const token = require('../utils/token')
 
 
 module.exports = (app) => {
-    app.post('/user/login', (req, res) => {
+
+    app.post('/user/login',  (req, res) => {
         userModel.checkUserByEmail(req.body.email)
-            .then(res => console.log(res[0].password_salt === req.body.password))
+            .catch((err) => {console.log(err)})
+            .then(result => {
+
+                const jwtSignCallback = function (err, token) {
+                    if (err) {
+                        res.status(401).send()
+                        console.log(err)
+                    } else {
+                        res.send({token: token})
+                    }
+                };
+                if (result.rows[0].password_salt === req.body.password){
+                    token.createToken({user: req.body.email},jwtSignCallback())
+                        console.log(token.createToken({user: req.body.email},jwtSignCallback(err, token)))
+                }
+
+            })
 
         //3. Wygenerowanie tokena
-        jwt.sign({
-                logged: true
-            },
-            "12345",
-            {algorithm: 'HS256'},
-            function (err, token) {
-                if (err) {
-                    console.log(err)
-                } else {
-                    console.log(token)
-                }
-            }
-        )
+
     })
 
     app.post("/user/register", (req, res) => {
@@ -32,4 +37,6 @@ module.exports = (app) => {
                 res.send({status: "OK"});
             })
     });
+
 }
+

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import {getToken, setToken} from "../../utils/token";
 
 const LoginPage = () => {
 
@@ -28,12 +28,14 @@ const LoginPage = () => {
                 {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Token': getToken()
                     },
                     body: JSON.stringify({email, password})
                 }
-            ).then((response) => response.json()).then((user) => {
-                console.log(email);
+            ).then((response) => response.json()).then(({ token }) => {
+                setToken(token);
+                console.log(getToken());
             })
         } else {
             setIsEmailValid(false);
