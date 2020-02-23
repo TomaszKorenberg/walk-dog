@@ -6,6 +6,8 @@ const createToken = (payload, callback) => jwt
 
 
 const authenticationMiddleware = (req, res, next) => {
+    console.log("dupa2")
+
     next();
 };
 

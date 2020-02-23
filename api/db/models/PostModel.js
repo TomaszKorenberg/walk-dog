@@ -23,7 +23,6 @@ getPost = (userId) => {
 
 
 
-//Todo
 const insertPost = () => {
     const sql = `
     INSERT INTO ${tableName}

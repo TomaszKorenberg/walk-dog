@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {getToken, setToken} from "../../utils/token";
+import WalksPage from "./WalksPage";
+import {Route} from "react-router-dom";
 
 const LoginPage = () => {
 
@@ -36,6 +38,8 @@ const LoginPage = () => {
             ).then((response) => response.json()).then(({ token }) => {
                 setToken(token);
                 console.log(getToken());
+                window.location.href="./walks";
+                //todo: zrobic obsluge blednego logowania
             })
         } else {
             setIsEmailValid(false);

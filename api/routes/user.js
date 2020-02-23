@@ -25,7 +25,7 @@ module.exports = (app) => {
 
             })
 
-        //3. Wygenerowanie tokena
+
 
     })
 
