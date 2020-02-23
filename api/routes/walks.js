@@ -6,9 +6,7 @@ module.exports = (app) => {
     app.post('/walks', [authenticationMiddleware], function (req, res) {
         insertWalk(req.body)
             .catch(err =>res.status(400).send(error))
-            .then(walk =>{
-                console.log(walk);
-                res.json(walk)
+            .then(() =>{
                 res.send({status:"ok"})});
 
     });

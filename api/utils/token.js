@@ -1,29 +1,34 @@
 const jwt = require('jsonwebtoken');
+const config = require('../config.json');
 
 
 const createToken = (payload, callback) => jwt
-    .sign(payload, "12345", {algorithm: 'HS256'}, callback);
+    .sign(payload, config.JWT.jwt_secret, {algorithm: 'HS256'}, callback);
 
 
 const authenticationMiddleware = (req, res, next) => {
-    console.log("dupa2")
+    verifyToken(req.headers.token, (isValid) => {
+        if (isValid === true) {
+            next()
+        } else {
+            res.status(401).send("Wrong token!")
+        }
+    })
 
-    next();
+
 };
 
-const verifyToken = (token) => {
-
+const verifyToken = (token, cb) => {
+    jwt.verify(token, config.JWT.jwt_secret, function (err) {
+        if (err) {
+            console.log(err.message);
+            return cb(false)
+        } else {
+            console.log("Token is valid");
+            return cb(true)
+        }
+    })
 };
-
-// const requireAuthentication = (req, res, next) => {
-//     const token = req.headers['Token'];
-//     jwt.decode(token); // verify
-//
-//     // if valid -> getUser -> req.user = user -> next()
-//
-// };
-
-
 
 module.exports = {
     createToken,

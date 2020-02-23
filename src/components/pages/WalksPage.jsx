@@ -1,6 +1,6 @@
 import "./WalksPage.scss";
 import React, {useState} from "react";
-import {BrowserRouter as Router, Link} from "react-router-dom";
+import {getToken} from "../../utils/token";
 
 const WalksPage = () => {
 
@@ -17,20 +17,18 @@ const WalksPage = () => {
     const onDescriptionChange = ({target: {value}}) => setDescription(value);
 
 
-
-
     const onSubmit = (e) => {
     e.preventDefault();
 
-    fetch(
+        fetch(
         'http://localhost:3001/walks',
         {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json', 'Token':getToken()},
             body: JSON.stringify({place, date, hour, dogName, description})
             //todo dodac user id do zapytania db oraz do
         }
-    ).then((response) => response.json()).then((walks) => {
+    ).then((response) => response.json()).then(() => {
         window.location.href = "/walks";
     });
 };

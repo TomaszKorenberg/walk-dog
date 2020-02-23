@@ -20,7 +20,10 @@ module.exports = (app) => {
                             res.send({token: token})
                         }
                     };
-                    token.createToken({user: req.body.email}, jwtSignCallback)
+                    token.createToken({
+                        userid: req.body.id,
+                        user: req.body.email,
+                    }, jwtSignCallback)
                 }
 
             })
