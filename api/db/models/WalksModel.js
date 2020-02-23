@@ -8,8 +8,6 @@ const insertWalk = (walkData) =>{
         DEFAULT, '${walkData.place}', '${walkData.date}', '${walkData.hour}','${walkData.dogName}', '${walkData.description}', 4
     )
     `;
-    console.log(sql)
-
   return connection.query(sql); 
 }
 
