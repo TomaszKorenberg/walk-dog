@@ -1,4 +1,4 @@
-const {insertWalk} = require('../db/models/WalksModel.js');
+const {insertWalk, getWalks} = require('../db/models/WalksModel.js');
 const {authenticationMiddleware} = require('../utils/token');
 
 
@@ -10,4 +10,11 @@ module.exports = (app) => {
                 res.send({status:"ok"})});
 
     });
+
+    app.get('/walks', (req, res) => {
+        getWalks()
+            .catch(err =>res.status(400).send(err))
+            .then((result) =>{res.send(result)});
+    })
+
 };

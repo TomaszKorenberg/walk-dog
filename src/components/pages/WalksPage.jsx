@@ -1,6 +1,7 @@
 import "./WalksPage.scss";
 import React, {useState} from "react";
 import {getToken} from "../../utils/token";
+import ViewWalks from "./WalksView";
 
 const WalksPage = () => {
 
@@ -16,42 +17,60 @@ const WalksPage = () => {
     const onDogNameChange = ({target: {value}}) => setDogName(value);
     const onDescriptionChange = ({target: {value}}) => setDescription(value);
 
+    const viewAllWalks = (element, index, array) => {
+        console.log(element)
+    };
+
+
+    //todo: fetch pobierający z "/walks" dane od backendu celem wyświetlenia spacerów
+    fetch(
+        "http://localhost:3001/walks",
+        {
+            method: "GET",
+            headers: {'Content-Type': 'application/json'}
+        }
+    )
+        .then(result => result.json())
+        .then(result => result.forEach(viewAllWalks))
+
 
     const onSubmit = (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
         fetch(
-        'http://localhost:3001/walks',
-        {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Token':getToken()},
-            body: JSON.stringify({place, date, hour, dogName, description})
-            //todo dodac user id do zapytania db oraz do
-        }
-    ).then((response) => response.json()).then(() => {
-        window.location.href = "/walks";
-    });
-};
+            'http://localhost:3001/walks',
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json', 'Token': getToken()},
+                body: JSON.stringify({place, date, hour, dogName, description})
+                //todo dodac user id do zapytania db oraz do
+            }
+        ).then((response) => response.json()).then(() => {
+            window.location.href = "/walks";
+        });
+    };
 
 
-    return  (<div className = {"container"}>
-        <p>Jeśli chcesz dodac swój spacer wypełnij poniższe pola</p>
-        <fieldset>
+    return (
+        <div className={"container"}>
+            <ViewWalks/>
+            <p>Jeśli chcesz dodac swój spacer wypełnij poniższe pola</p>
+            <fieldset>
                 <form>
                     <label htmlFor="dog_name_field">Dog name</label>
                     <input type="text" id="dog_name" name="dog_name" onChange={onDogNameChange}/>
-                    <label htmlFor="date_field">Date of walk</label>  
+                    <label htmlFor="date_field">Date of walk</label>
                     <input type="text" name="date" onChange={onDateChange}/>
-                    <label htmlFor="hour_field">Hour of walk</label>  
+                    <label htmlFor="hour_field">Hour of walk</label>
                     <input type="text" name="hour" onChange={onHourChange}/>
-                    <label htmlFor="place_field">Place of walk</label>  
+                    <label htmlFor="place_field">Place of walk</label>
                     <input type="text" name="place" onChange={onPlaceChange}/>
                     <label htmlFor="Description">Description of walk</label>
                     <input type="text" name="description" onChange={onDescriptionChange}/>
                     <button onClick={onSubmit}>Zapisz</button>
                 </form>
-        </fieldset>
-    </div>)
+            </fieldset>
+        </div>)
 };
 
 export default WalksPage;

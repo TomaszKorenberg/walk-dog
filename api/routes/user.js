@@ -1,5 +1,5 @@
-const userModel = require('../db/models/UserModel')
-const token = require('../utils/token')
+const userModel = require('../db/models/UserModel');
+const token = require('../utils/token');
 
 
 module.exports = (app) => {
@@ -16,7 +16,6 @@ module.exports = (app) => {
                             res.status(401).send();
                             console.log(err)
                         } else {
-
                             res.send({token: token})
                         }
                     };
@@ -36,7 +35,7 @@ module.exports = (app) => {
         userModel
             .insertUser(req.body)
             .catch(err => res.status(400).send(err))
-            .then((result) => {
+            .then(() => {
                 res.send({status: "OK"});
             })
     });
