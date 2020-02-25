@@ -2,6 +2,7 @@ import "./WalksPage.scss";
 import React, {useState} from "react";
 import {getToken} from "../../utils/token";
 import ViewWalks from "./WalksView";
+import jsonPlaceholder from "../../api/jsonPlaceholder";
 
 const WalksPage = () => {
 
@@ -10,6 +11,7 @@ const WalksPage = () => {
     const [hour, setHour] = useState(null);
     const [dogName, setDogName] = useState(null);
     const [description, setDescription] = useState(null);
+    const [allWalks, setAllWalks] = useState(undefined);
 
     const onPlaceChange = ({target: {value}}) => setPlace(value);
     const onDateChange = ({target: {value}}) => setDate(value);
@@ -17,23 +19,16 @@ const WalksPage = () => {
     const onDogNameChange = ({target: {value}}) => setDogName(value);
     const onDescriptionChange = ({target: {value}}) => setDescription(value);
 
-    const viewAllWalks = (element, index, array) => {
-        console.log(element)
-    };
+
+    /**
+     * Get walks and sent to ViewWalks component
+     */
+    jsonPlaceholder().then((response) => setAllWalks(response));
 
 
-    //todo: fetch pobierający z "/walks" dane od backendu celem wyświetlenia spacerów
-    fetch(
-        "http://localhost:3001/walks",
-        {
-            method: "GET",
-            headers: {'Content-Type': 'application/json'}
-        }
-    )
-        .then(result => result.json())
-        .then(result => result.forEach(viewAllWalks))
-
-
+    /**
+     * Add new walk
+     */
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -53,7 +48,7 @@ const WalksPage = () => {
 
     return (
         <div className={"container"}>
-            <ViewWalks/>
+            <ViewWalks walkItems={allWalks}/>
             <p>Jeśli chcesz dodac swój spacer wypełnij poniższe pola</p>
             <fieldset>
                 <form>
