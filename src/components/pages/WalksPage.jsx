@@ -1,5 +1,5 @@
 import "./WalksPage.scss";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {getToken} from "../../utils/token";
 import ViewWalks from "./WalksView";
 import jsonPlaceholder from "../../api/jsonPlaceholder";
@@ -11,7 +11,7 @@ const WalksPage = () => {
     const [hour, setHour] = useState(null);
     const [dogName, setDogName] = useState(null);
     const [description, setDescription] = useState(null);
-    const [allWalks, setAllWalks] = useState(undefined);
+    const [allWalks, setAllWalks] = useState(null);
 
     const onPlaceChange = ({target: {value}}) => setPlace(value);
     const onDateChange = ({target: {value}}) => setDate(value);
@@ -23,8 +23,9 @@ const WalksPage = () => {
     /**
      * Get walks and sent to ViewWalks component
      */
-    jsonPlaceholder().then((response) => setAllWalks(response));
-
+    useEffect(() => {
+        jsonPlaceholder().then((response) => setAllWalks(response));
+    });
 
     /**
      * Add new walk
@@ -40,7 +41,7 @@ const WalksPage = () => {
                 body: JSON.stringify({place, date, hour, dogName, description})
                 //todo dodac user id do zapytania db oraz do
             }
-        ).then((response) => response.json()).then(() => {
+        ).then((response) => response.json).then(() => {
             window.location.href = "/walks";
         });
     };

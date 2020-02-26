@@ -6,12 +6,12 @@ const ViewWalks = ({walkItems}) => (
 
 
     <div>
-        {console.log(walkItems)}
+        {console.log({walkItems})}
         <p>Spacery:</p>
 
-        <ul className="to-do-list">
+        <ul>
             {
-                //walkItems.map((item) => (<li key={item.id}>{item}</li>))
+                //walkItems.map((item) => (<li>{item}</li>))
             }
         </ul>
     </div>
