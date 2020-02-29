@@ -18,6 +18,8 @@ const runServer = (port) => {
 
 require('./routes/user')(app);
 require('./routes/walks')(app);
+require('./routes/admin')(app);
+
 
 
 module.exports = {

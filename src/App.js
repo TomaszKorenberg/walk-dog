@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import DashboardPage from "./components/pages/DashboardPage";
 import WalksPage from "./components/pages/WalksPage";
 import LoginPage from "./components/pages/LoginPage";
+import AdminPage from "./components/pages/AdminPage";
 import ProfilePage from "./components/pages/ProfilePage";
 import RegisterPage from "./components/pages/RegisterPage";
 import Footer from "./components/Footer";
@@ -25,6 +26,7 @@ const App = () => {
                 <Route exact path={"/register"}><RegisterPage/></Route>
                 <Route exact path={"/profile"}><ProfilePage/></Route>
                 <Route exact path={"/walks"}><WalksPage/></Route>
+                <Route exact path={"/admin"}><AdminPage/></Route>
             </Switch>
         </main>
         <Footer/>

@@ -11,7 +11,7 @@ const WalksPage = () => {
     const [hour, setHour] = useState(null);
     const [dogName, setDogName] = useState(null);
     const [description, setDescription] = useState(null);
-    const [allWalks, setAllWalks] = useState(["Waiting..."]);
+    const [allWalks, setAllWalks] = useState(null);
 
     const onPlaceChange = ({target: {value}}) => setPlace(value);
     const onDateChange = ({target: {value}}) => setDate(value);

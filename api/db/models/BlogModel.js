@@ -15,6 +15,8 @@ const insertBlog = () => {
     return connection.query(sql)
 };
 
+insertBlog().then(res => console.log(res))
+
 const BlogModel = (row) => ({
     id: row.id, 
     header: row.header,

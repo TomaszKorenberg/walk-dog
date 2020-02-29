@@ -1,2 +1,4 @@
 const {runServer} = require("./app.js");
-runServer(3001);
+const config = require('./config.json');
+
+runServer(config.Server.port);
