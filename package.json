@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.1.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -13,9 +13,9 @@
     "node-sessionstorage": "^1.0.0",
     "nodemon": "^2.0.2",
     "passport-jwt": "^4.0.0",
-    "pg": "^7.17.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "pg": "^7.18.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0"
   },

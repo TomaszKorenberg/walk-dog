@@ -11,6 +11,9 @@ const Header = () => (
             </li>
             <div className={"menu-right"}>
                 <li className={"menu-right-li"}>
+                    <Link to={"/profile"}>Profil</Link>
+                </li>
+                <li className={"menu-right-li"}>
                     <Link to={"/walks"}>Spacery</Link>
                 </li>
                 <li className={"menu-right-li"}>

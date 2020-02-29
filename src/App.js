@@ -25,6 +25,7 @@ const App = () => {
                 <Route exact path={"/register"}><RegisterPage/></Route>
                 <Route exact path={"/profile"}><ProfilePage/></Route>
                 <Route exact path={"/walks"}><WalksPage/></Route>
+                <Route exact path={"/profile"}><ProfilePage/></Route>
             </Switch>
         </main>
         <Footer/>
