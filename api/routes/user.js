@@ -14,15 +14,20 @@ module.exports = (app) => {
                     const jwtSignCallback = function (err, token) {
                         if (err) {
                             res.status(401).send();
-                            console.log(err)
+                            console.log("err")
                         } else {
                             res.send({token: token})
+                            res.status(200);
                         }
                     };
                     token.createToken({
                         userid: req.body.id,
                         user: req.body.email,
                     }, jwtSignCallback)
+                }
+                else {
+                    res.status(204).send()
+                    console.log("wrong password")
                 }
 
             })

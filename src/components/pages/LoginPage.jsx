@@ -35,16 +35,20 @@ const LoginPage = () => {
                     },
                     body: JSON.stringify({email, password})
                 }
-            ).then((response) => response.json()).then(({ token }) => {
-                setToken(token);
-                window.location.href="./walks";
-                //todo: zrobic obsluge blednego logowania
-            })
+            )
+                .then((response) =>
+                     response.status === 204 ?
+                   alert("wrong password") : response.json()
+                             .then(({ token }) => {
+                             setToken(token);
+                             window.location.href="./walks";
+                         })
+                )
+
         } else {
             setIsEmailValid(false);
         }
     };
-
 
     return (
         <>
@@ -58,10 +62,10 @@ const LoginPage = () => {
                         name="email"
                         onChange={onEmailChange}
                     />
-                    {isEmailValid ? null : <p>dupa</p>}
+                    {isEmailValid ? null : <p style={{color: "red"}}>check your email adress</p>}
                     <label htmlFor="password_field">Password</label>
                     <input
-                        type="text"
+                        type="password"
                         id="password_field"
                         name="password"
                         onChange={onPasswordChange}
