@@ -72,6 +72,7 @@ const LoginPage = () => {
                     </button>
                 </div>
                 <div>
+
                     New to Walk Dog? <a href="/register">Sing up!</a>
                 </div>
             </div>

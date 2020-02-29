@@ -21,15 +21,16 @@ const WalksPage = () => {
 
 
     /**
-     * Get walks and sent to ViewWalks component
+     * Get walks and send to ViewWalks component
      */
     useEffect(() => {
         jsonPlaceholder().then((response) => setAllWalks(response));
-    });
+    }, []);
 
     /**
      * Add new walk
      */
+
     const onSubmit = (e) => {
         e.preventDefault();
 
