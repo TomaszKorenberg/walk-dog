@@ -3,8 +3,7 @@ const config = require('../config.json');
 
 
 const createToken = (payload, callback) => jwt
-//todo: ustwić długość sesji na odpowiednim poziomie, aktualna 20s potrzebna do developerki
-    .sign(payload, config.JWT.jwt_secret, {algorithm: 'HS256', expiresIn: 20}, callback);
+    .sign(payload, config.JWT.jwt_secret, {algorithm: 'HS256', expiresIn: config.JWT.token_time}, callback);
 
 
 const authenticationMiddleware = (req, res, next) => {
