@@ -13,7 +13,7 @@ const ViewWalks = ({walkItems}) => (
 
         <ul>
             {
-                //walkItems.map((item) => <li>{item}</li>)
+                walkItems.map((item) => <li>{item.id} {item.place}{item.date}{item.hour} {item.dogname} {item.description} {item.user_id}</li>)
             }
         </ul>
     </div>
