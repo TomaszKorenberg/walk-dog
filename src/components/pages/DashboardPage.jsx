@@ -1,7 +1,7 @@
 import "./DashboardPage.scss";
 import React, {useState, useEffect} from "react";
 import ViewNews from "../NewsView";
-import jsonPlaceholder from "../../api/jsonPlaceholder";
+import jsonPlaceholderB from "../../api/jsonPlaceholderB";
 
 
 
@@ -10,7 +10,7 @@ const DashboardPage = () => {
     const [allNews, setAllnews] = useState(null);
 
     useEffect(() => {
-        jsonPlaceholder().then((response) => setAllnews(response));
+        jsonPlaceholderB().then((response) => setAllnews(response));
     }, []);
 
     return (

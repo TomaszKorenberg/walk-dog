@@ -13,7 +13,7 @@ const ViewNews = ({newsItems}) => {
     <div>
         <p>Aktualności:</p>
         <div>
-            {newsItems.map((item) => <div>{item.id}</div>)}
+            {newsItems.map((item) => <div>{item.id}{item.article}</div>)}
         </div>
         <br/>
     </div>

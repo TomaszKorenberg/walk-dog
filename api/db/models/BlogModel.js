@@ -8,14 +8,13 @@ const insertBlog = () => {
         DEFAULT,
        'Jak wyprowadzać psa na spacer? ',
        'Wbrew pozorom pytanie nie jest takie oczywiste. Nie każdy pies lubi długie spacery, deszcz czy towarzystwo innych psów.',
-       'GalAnonim',
+       'GalAnonim'
     )
     `;
-
     return connection.query(sql)
+    
 };
 
-insertBlog().then(res => console.log(res))
 
 const BlogModel = (row) => ({
     id: row.id, 
@@ -32,9 +31,8 @@ const getBlogs = () => {
     return connection.query(sql).then((response) =>
     response.rows.map(BlogModel)
     );
-};
+}
 
-//getBlog().then((results) => result[0])
 
 const getBlog = (id) => {
     const sql = `
@@ -45,6 +43,4 @@ const getBlog = (id) => {
     return connection.query(sql).then((response) => response.rows.map(BlogModel));
 };
 
-getBlog(1).then((response) => console.log(response));
-
-module.exports = {getBlog, getBlogs};
+module.exports = {getBlog, getBlogs, insertBlog};
