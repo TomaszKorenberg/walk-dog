@@ -25,8 +25,14 @@ const getUser = (id) => {
     `;
     return connection.query(sql).then((response) => response.rows);
 };
+const checkByEmailIfUserExist = (email) =>{
+    const sql =`
+    SELECT id FROM ${tableName} WHERE email = '${email}';
+    `;
+    return connection.query(sql);
+};
 
-const checkUserByEmail = (email) => {
+const checkUserPasswordByEmail = (email) => {
     const sql = `
     SELECT password_salt FROM ${tableName} WHERE email = '${email}';
     `;
@@ -34,4 +40,4 @@ const checkUserByEmail = (email) => {
 };
 
 
-module.exports = {getUsers, getUser, checkUserByEmail, insertUser};
+module.exports = {getUsers, getUser, checkUserPasswordByEmail, insertUser, checkByEmailIfUserExist};

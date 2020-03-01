@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {getToken, setToken} from "../../utils/token";
 import WalksPage from "./WalksPage";
 import {Route} from "react-router-dom";
+import InfoModal from "../alerts/InfoModal";
 
 const LoginPage = () => {
 
@@ -9,6 +10,9 @@ const LoginPage = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [isEmailValid, setIsEmailValid] = useState(true);
+    const [registrationState, setRegistrationState] = useState(true)
+    const changeRegistrationState = () => {registrationState === true ? setRegistrationState(false): setRegistrationState(true);}
+
 
     const onEmailChange = ({target: {value}}) => {
         setEmail(value);
@@ -32,20 +36,27 @@ const LoginPage = () => {
                     headers: {
                         'Content-Type': 'application/json',
                         'Token': getToken()
-                    },
+                        },
                     body: JSON.stringify({email, password})
-                }
-            )
-                .then((response) =>
-                     response.status === 204 ?
-                   alert("wrong password") : response.json()
-                             .then(({ token }) => {
-                             setToken(token);
-                             window.location.href="./walks";
-                         })
+                    }
                 )
+                .then((response) => {
+                    if(response.status === 204) {
+                        alert("wrong password") }
+                    else if (response.status === 207){
+                        changeRegistrationState()
 
-        } else {
+                    }
+                    else {
+                        response.json()
+                            .then(({token}) => {
+                                setToken(token);
+                                window.location.href = "./walks";
+                            });
+                    };
+                });
+        }
+        else {
             setIsEmailValid(false);
         }
     };
@@ -62,7 +73,7 @@ const LoginPage = () => {
                         name="email"
                         onChange={onEmailChange}
                     />
-                    {isEmailValid ? null : <p style={{color: "red"}}>check your email adress</p>}
+                    {isEmailValid ? null : <p style={{color: "red"}}>check your email adress and password</p>}
                     <label htmlFor="password_field">Password</label>
                     <input
                         type="password"
@@ -74,6 +85,10 @@ const LoginPage = () => {
                         onClick={onSubmit}>
                         Sing in
                     </button>
+                    {registrationState === true ? null : InfoModal("First Time??",
+                        "if you are new here pleas join us first",
+                    "Jouin us!",
+                    "./register")}
                 </div>
                 <div>
 

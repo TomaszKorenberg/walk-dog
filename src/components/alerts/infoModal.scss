@@ -1,0 +1,11 @@
+#infoModal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50, -50);
+  display: block;
+  z-index: 2;
+  background-color: lightgray;
+  width: 45%;
+  height: 35%;
+}

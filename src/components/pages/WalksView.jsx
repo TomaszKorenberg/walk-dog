@@ -8,18 +8,22 @@ const ViewWalks = ({walkItems}) => {
     if (!walkItems){
         return (<p>Loading...</p>)
     }
-
     return (
-//todo: zrobić key bo wywala błąd w konsoli
+
 
     <div>
         <p>Spacery:</p>
         {console.log(walkItems)}
 
         <ul>
-
             {
-                walkItems.map((item) => <li>{item.id} {item.place}{item.date}{item.hour} {item.dogname} {item.description} {item.user_id}</li>)
+                walkItems.map((item) => 
+                <li key={item.id}>
+                    {item.id} {item.place}
+                    {item.date}{item.hour}
+                    {item.dogname}{item.description}
+                    {item.user_id}                    
+                </li>)
             }
         </ul>
     </div>
