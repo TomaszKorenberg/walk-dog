@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import "./RegisterPage.scss";
+import InfoModal from "../alerts/InfoModal";
+
 
 const RegisterPage = () => {
 
@@ -14,6 +16,10 @@ const RegisterPage = () => {
     const onSecondPasswordChange = ({target: {value}}) => setMatchPassword(value);
     const onNameChange = ({target: {value}}) => setName(value);
     const onSurnameChange = ({target: {value}}) => setSurname(value);
+
+
+    const [registrationState, setRegistrationState] = useState(true)
+    const changeRegistrationState = () => {registrationState === true ? setRegistrationState(false): setRegistrationState(true);}
 
 
     const [isEmailValid, setIsEmailValid] = useState(true);
@@ -48,7 +54,7 @@ const RegisterPage = () => {
         )
             .then((response) => {
                 if (response.status === 207) {
-                    alert("użytkownik już istnieje! zapomniałeś hasła? przejdź do odzyskiwania haseł ")
+                    changeRegistrationState()
                  }
                 else {
                     response.json()
@@ -76,9 +82,13 @@ const RegisterPage = () => {
 
                 <button onClick={onSubmit}> JOIN</button>
 
+
             </form>
 
-
+            {registrationState === true ? null : InfoModal("Damn",
+                "it looks like you already exist in our base if you forgot your password try to restore it",
+                "restore password",
+                "./register")}
         </div>
 
 
