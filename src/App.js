@@ -15,6 +15,7 @@ import RegisterPage from "./components/pages/RegisterPage";
 import Footer from "./components/Footer";
 
 
+
 const App = () => {
   return (
     <Router>

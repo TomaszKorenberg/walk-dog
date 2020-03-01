@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-
-
-
 const ViewNews = ({newsItems}) => {
     if (!newsItems){
         return (<p>Loading...</p>)
@@ -13,7 +10,15 @@ const ViewNews = ({newsItems}) => {
     <div>
         <p>Aktualności:</p>
         <div>
-            {newsItems.map((item) => <div>{item.id}{item.article}</div>)}
+            {newsItems.map((item) =>             
+            <div>
+                <h1>  {item.header}
+                </h1>
+              <p>
+              {item.article} 
+              </p>   
+            
+            </div>)}
         </div>
         <br/>
     </div>
