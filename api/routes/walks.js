@@ -11,7 +11,7 @@ module.exports = (app) => {
 
     });
 
-    app.get('/walks', (req, res) => {
+    app.get('/walks',[authenticationMiddleware], (req, res) => {
         getWalks()
             .catch(err =>res.status(400).send(err))
             .then((result) =>{res.send(result)});

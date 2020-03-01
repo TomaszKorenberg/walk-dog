@@ -7,9 +7,11 @@ const createToken = (payload, callback) => jwt
 
 
 const authenticationMiddleware = (req, res, next) => {
-    verifyToken(req.headers.token, (isValid) => {
-        if (isValid === true) {
-            next()
+    verifyToken(req.headers.token, (data) => {
+        if (data) {
+            req.user = data; 
+
+            next();
         } else {
             res.status(401).send("Wrong token!")
         }
@@ -19,13 +21,13 @@ const authenticationMiddleware = (req, res, next) => {
 };
 
 const verifyToken = (token, cb) => {
-    jwt.verify(token, config.JWT.jwt_secret, function (err) {
+    jwt.verify(token, config.JWT.jwt_secret, function (err, data) {
         if (err) {
             console.log(err.message);
             return cb(false)
         } else {
-            console.log("Token is valid");
-            return cb(true)
+            //console.log(data);
+            return cb(data)
         }
     })
 };

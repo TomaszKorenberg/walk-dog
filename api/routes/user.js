@@ -1,5 +1,6 @@
 const userModel = require('../db/models/UserModel');
 const token = require('../utils/token');
+const {authenticationMiddleware} = require('../utils/token');
 
 
 module.exports = (app) => {
@@ -44,6 +45,10 @@ module.exports = (app) => {
                 res.send({status: "OK"});
             })
     });
+
+    app.get('/user', [authenticationMiddleware], (req, res) => {
+        console.log(req.user.user)
+    })
 
 };
 

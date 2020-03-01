@@ -6,11 +6,11 @@ const insertPet = (petData) => {
     INSERT INTO ${tableName}
     VALUES(
         DEFAULT,
-        ${petData.dogName},
-        ${petData.race},
-        ${petData.size},
-        ${petData.age},
-        4
+        '${petData.dogName}',
+        '${petData.race}',
+        '${petData.size}',
+        '${petData.age}',
+        12
     )
     `;
 
@@ -24,4 +24,11 @@ const getPet =() => {
     return connection.query(sql)
 }
 
-module.exports = {insertPet, getPet};
+const getPetsByUser = () => {
+    const sql = `
+    SELECT * from ${tableName} where user_ID = '12'
+    `;
+    return connection.query(sql)
+}
+
+module.exports = {insertPet, getPet, getPetsByUser};
