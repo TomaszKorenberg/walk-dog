@@ -45,9 +45,18 @@ const RegisterPage = () => {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({email, password, name, surname})
             }
-        ).then((response) => response.json()).then((user) => {
-            window.location.href = "/login";
-        });
+        )
+            .then((response) => {
+                if (response.status === 207) {
+                    alert("użytkownik już istnieje! zapomniałeś hasła? przejdź do odzyskiwania haseł ")
+                 }
+                else {
+                    response.json()
+                    .then((user) => {
+                        window.location.href = "/login";
+                    });
+                 };
+            });
     };
     return (
         <div id={"formDiv"}>

@@ -32,22 +32,28 @@ const LoginPage = () => {
                     headers: {
                         'Content-Type': 'application/json',
                         'Token': getToken()
-                    },
+                        },
                     body: JSON.stringify({email, password})
-                }
-            )
-                .then((response) =>
-                     response.status === 204 ?
-                   alert("wrong password") : response.json()
-                             .then(({ token }) => {
-                             setToken(token);
-                             window.location.href="./walks";
-                         })
+                    }
                 )
-
-        } else {
-            setIsEmailValid(false);
+                .then((response) => {
+                    if(response.status === 204) {
+                        alert("wrong password") }
+                    else if (response.status === 207){
+                        alert("wymagana rejestracja")
+                    }
+                    else {
+                        response.json()
+                            .then(({token}) => {
+                                setToken(token);
+                                window.location.href = "./walks";
+                            });
+                    };
+                });
         }
+        else {
+            setIsEmailValid(false);
+        };
     };
 
     return (
