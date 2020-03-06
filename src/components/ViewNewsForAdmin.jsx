@@ -7,7 +7,7 @@ const ViewNewsForAdmin = ({newsItems}) => {
     const removeElement = (id) => {
         const element = document.getElementById("news-tr-" + id);
         element.parentNode.removeChild(element)
-    }
+    };
 
     const onDeleteButton = (id) => {
         removeElement(id);
@@ -21,8 +21,6 @@ const ViewNewsForAdmin = ({newsItems}) => {
         )
 
     };
-
-
 
 
     if (!newsItems){

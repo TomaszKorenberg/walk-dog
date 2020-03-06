@@ -30,10 +30,10 @@ const ProfilePage = () => {
     return (
     <div style={{display:'flex', justifyContent:'space-around'}}>
         <div>
-            <UserView userData={userData}></UserView>
+            <UserView userData={userData}/>
         </div>
         <div>  
-            <PetsView userPets={allPets}></PetsView>
+            <PetsView userPets={allPets}/>
         </div>
     </div>
     )

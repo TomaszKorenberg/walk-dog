@@ -1,16 +1,16 @@
 import "./DashboardPage.scss";
 import React, {useState, useEffect} from "react";
 import ViewNews from "../NewsView";
-import jsonPlaceholderB from "../../api/jsonPlaceholderB";
+import Api from "../../api/api";
 
-
+const api = new Api();
 
 const DashboardPage = () => {
 
     const [allNews, setAllnews] = useState(null);
 
     useEffect(() => {
-        jsonPlaceholderB().then((response) => setAllnews(response));
+        api.blog().then((response) => setAllnews(response));
     }, []);
 
     return (

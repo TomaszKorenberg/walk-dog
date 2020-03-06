@@ -2,7 +2,9 @@ import "./WalksPage.scss";
 import React, {useState, useEffect} from "react";
 import {getToken} from "../../utils/token";
 import ViewWalks from "./WalksView";
-import jsonPlaceholder from "../../api/jsonPlaceholder";
+import Api from "../../api/api";
+
+const api = new Api();
 
 const WalksPage = () => {
 
@@ -24,7 +26,7 @@ const WalksPage = () => {
      * Get walks and send to ViewWalks component
      */
     useEffect(() => {
-        jsonPlaceholder().then((response) => setAllWalks(response));
+        api.walks().then((response) => setAllWalks(response));
     }, []);
 
     /**

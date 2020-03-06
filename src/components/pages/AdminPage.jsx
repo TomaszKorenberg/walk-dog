@@ -2,8 +2,9 @@ import "./AdminPage.scss";
 import React, {useEffect, useState} from "react";
 import {getToken} from "../../utils/token";
 import ViewNewsForAdmin from "../ViewNewsForAdmin";
-import jsonPlaceholderB from "../../api/jsonPlaceholderB";
+import Api from "../../api/api";
 
+const api = new Api()
 
 
 const DashboardPage = () => {
@@ -20,7 +21,7 @@ const DashboardPage = () => {
 
 
     useEffect(() => {
-        jsonPlaceholderB().then((response) => setAllnews(response));
+        api.blog().then((response) => setAllnews(response));
     }, []);
 
 

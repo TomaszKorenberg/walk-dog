@@ -5,6 +5,12 @@ const {authenticationMiddleware} = require('../utils/token');
 
 module.exports = (app) => {
 
+    app.get("/user", (req, res) => {
+        console.log(req.headers.token)
+        res.status(200).send()
+
+    })
+
     app.post('/user/login', (req, res) => {
 
         userModel.checkByEmailIfUserExist(req.body.email)

@@ -36,7 +36,7 @@ const PetsView = ({userPets}) => {
         <div>
             <p>Moje psy:</p>
             {
-                userPets.map((item)=> <li>{item.dog_name}</li>)
+                userPets.map((item)=> <li key={item.id}>{item.dog_name}</li>)
             }
             <button onClick={showAddDog}>Dodaj psa</button>
             {
