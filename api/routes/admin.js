@@ -10,4 +10,4 @@ module.exports = (app) => {
             res.status(400).send(err)}
     });
 
-};
+}

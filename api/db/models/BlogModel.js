@@ -1,14 +1,14 @@
 const connection = require('../connection');
 const tableName = 'blog'
 
-const insertBlog = () => {
+const insertBlog = (blogData) => {
     const sql = `
     INSERT INTO ${tableName}
     VALUES(
         DEFAULT,
-       'Jak wyprowadzać psa na spacer? ',
-       'Wbrew pozorom pytanie nie jest takie oczywiste. Nie każdy pies lubi długie spacery, deszcz czy towarzystwo innych psów.',
-       'GalAnonim'
+       '${blogData.newsTitle}',
+       '${blogData.newsArticle}',
+       '${blogData.newsAuthor}'
     )
     `;
     return connection.query(sql)
@@ -43,4 +43,14 @@ const getBlog = (id) => {
     return connection.query(sql).then((response) => response.rows.map(BlogModel));
 };
 
-module.exports = {getBlog, getBlogs, insertBlog};
+
+const deleteBlog = (id) => {
+    const sql = `
+    DELETE FROM ${tableName}
+    WHERE id = ${id.id}
+    `;
+
+    return connection.query(sql);
+};
+
+module.exports = {getBlog, getBlogs, insertBlog, deleteBlog};

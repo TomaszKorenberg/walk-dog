@@ -51,7 +51,8 @@ const WalksPage = () => {
     return (
         <div className={"container"}>
             <ViewWalks walkItems={allWalks}/>
-            
+
+
             <p>Jeśli chcesz dodac swój spacer wypełnij poniższe pola</p>
             <fieldset>
                 <form>
