@@ -26,6 +26,7 @@ module.exports = (app) => {
                             console.log(err)
                         })
                         .then(result => {
+                            //todo: zrobić szyfrowanie hasła!
                             if (result.rows[0].password_salt === req.body.password) {
                                 const jwtSignCallback = function (err, token) {
                                     if (err) {
