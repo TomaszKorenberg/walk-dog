@@ -40,7 +40,6 @@ module.exports = (app) => {
                                     }
                                 };
                                 token.createToken({
-                                    userid: req.body.id,
                                     user: req.body.email,
                                 }, jwtSignCallback)
                             }

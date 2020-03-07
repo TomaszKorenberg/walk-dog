@@ -1,7 +1,13 @@
 import React, {useState} from "react";
 import {getToken} from "../utils/token";
 
-const ViewPets = ({userPets}) => {
+const ViewPets = ({userPets}, {userInfo}) => {
+
+    console.log(userPets);
+    //fixme: naprawić to aby można było wysłać do backendu email użytkownika, aktualnie jest undefiniec =>userInfo
+    // dzięki temu będzie można dodawać pieski do konkretnego userID, aktualnie można dodawać
+    // ale są na sztywno przypisane do ID 12 w PetsModel.js
+    console.log(userInfo);
 
     const [dogForm, setDogForm] = useState(false);
     const showAddDog = () => {dogForm === false ? setDogForm(true): setDogForm(false);}

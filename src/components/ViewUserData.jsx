@@ -34,6 +34,6 @@ const ViewUserData = ({userInfo}) => {
         }
         </>
     )
-}
+};
 
 export default ViewUserData;

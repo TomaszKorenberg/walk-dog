@@ -81,7 +81,7 @@ const DashboardPage = () => {
                         <input type="text" name="add-news" id="author" onChange={onAuthorChange}/>
 
                         {
-                            //fixme: poprawić aby po dodaniu artykułu czysciły sie pola formularza i renderowała na nowo tabela
+                            //fixme: poprawić aby po dodaniu artykułu czysciły sie pola formularza i renderowała na nowa tabela
 
                         }
 

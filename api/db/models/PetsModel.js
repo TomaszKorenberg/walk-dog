@@ -24,9 +24,9 @@ const getPet =() => {
     return connection.query(sql)
 }
 
-const getPetsByUser = () => {
+const getPetsByUser = (userId) => {
     const sql = `
-    SELECT * from ${tableName} where user_ID = '12'
+    SELECT * from ${tableName} where user_ID = '${userId}'
     `;
     return connection.query(sql)
 }

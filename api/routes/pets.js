@@ -1,17 +1,28 @@
 const {insertPet, getPet, getPetsByUser} = require('../db/models/PetsModel.js');
 const {authenticationMiddleware} = require('../utils/token');
+const {checkByEmailIfUserExist} = require("../db/models/UserModel");
 
 module.exports = (app) => {
     app.post('/pets', [authenticationMiddleware], function (req, res) {
+        console.log(req.body)
+
         insertPet(req.body)
-            .catch(err =>res.status(400).send(err))
-            .then(() =>{
-                res.send({status:"ok"})});
+            .catch(err => res.status(400).send(err))
+            .then((result) => {
+                res.status(200).send()
+            });
     });
 
     app.get('/pets', [authenticationMiddleware], (req, res) => {
-        getPetsByUser()
-            .catch(err =>res.status(400).send(err))
-            .then((result) =>{res.send(result)});
-    })
+
+        checkByEmailIfUserExist(req.user.user)
+            .catch(err => res.status(400).send(err))
+            .then((result) => {
+                    getPetsByUser(result.rows[0].id)
+                        .catch(err => res.status(400).send(err))
+                        .then(result => {
+                            res.send(result.rows)});
+                }
+            )
+    });
 };
