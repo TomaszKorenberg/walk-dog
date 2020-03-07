@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./WalksView.scss";
+import "./ViewWalks.scss";
 
 
 const ViewWalks = ({walkItems}) => {
@@ -45,6 +45,8 @@ const ViewWalks = ({walkItems}) => {
     )
 };
 
+//todo: dopisać komponet że po kliknięciu na konkretny spacer przejdziemy do nowej strony gdzie będą informacje o tym spacerze
+//todo: dopisać komponent forum/czatu w spacerze aby ludzie mogli do siebie pisać
 
 
 
