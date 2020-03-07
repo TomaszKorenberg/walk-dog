@@ -4,7 +4,7 @@ import {getToken} from "../../utils/token";
 import ViewNewsForAdmin from "../ViewNewsForAdmin";
 import Api from "../../api/api";
 
-const api = new Api()
+const api = new Api();
 
 
 const DashboardPage = () => {
@@ -58,9 +58,6 @@ const DashboardPage = () => {
     };
 
 
-
-
-
     //todo: zrobić komponet strony 401
 
 
@@ -80,6 +77,10 @@ const DashboardPage = () => {
                         <label htmlFor="author">Autor:</label>
                         <input type="text" name="add-news" id="author" onChange={onAuthorChange}/>
                         {newsAuthor ? null : <p> Uzupełnij wymagane pole! </p>}
+
+                        {
+                            //fixme: poprawić aby po dodaniu artykułu czysciły sie pola formularza i renderowała na nowo tabela
+                        }
 
                         <button onClick={onSubmit}> Dodaj</button>
                         <br/>

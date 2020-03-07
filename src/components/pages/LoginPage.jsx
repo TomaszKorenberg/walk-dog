@@ -83,6 +83,9 @@ const LoginPage = () => {
                         onClick={onSubmit}>
                         Sing in
                     </button>
+                    {
+                        //fixme: powinien się wyświetlac jak jest bledny login lub hasło a wyswietla sie tylko przy blednym loginie
+                    }
                     {registrationState === true ? null : InfoModal("Nie masz konta?",
                         "Zarejestruj się!",
                     "Rejestracja",
