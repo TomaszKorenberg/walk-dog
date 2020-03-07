@@ -1,7 +1,7 @@
 import "./WalksPage.scss";
 import React, {useState, useEffect} from "react";
 import {getToken} from "../../utils/token";
-import ViewWalks from "./WalksView";
+import ViewWalks from "../WalksView";
 import Api from "../../api/api";
 
 const api = new Api();

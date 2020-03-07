@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./ViewNews.scss"
 
 const ViewNews = ({newsItems}) => {
     if (!newsItems) {
@@ -11,16 +12,12 @@ const ViewNews = ({newsItems}) => {
             {
                 // todo:napisać komponent wyświetlający każdy news na nowej stronie po klinięciu na niego
             }
-            <p>Aktualności:</p>
-            <div>
+            <p>Aktualności:</p><br/>
+            <div className={"news-container"}>
                 {newsItems.map((item) =>
-                    <div>
-                        <h1>  {item.header}
-                        </h1>
-                        <p>
-                            {item.article}
-                        </p>
-
+                    <div key={item.id} className={"news-div"} id={"news-div-id-" + item.id}>
+                        <p><b>{item.header}</b></p>
+                        <p>{item.article}</p>
                     </div>)}
             </div>
             <br/>

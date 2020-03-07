@@ -1,15 +1,14 @@
 const userModel = require('../db/models/UserModel');
 const token = require('../utils/token');
-const {authenticationMiddleware} = require('../utils/token');
 
 
 module.exports = (app) => {
 
     app.get("/user", (req, res) => {
-        console.log(req.headers.token)
+        console.log(req.headers.token);
         res.status(200).send()
 
-    })
+    });
 
     app.post('/user/login', (req, res) => {
 
@@ -45,9 +44,9 @@ module.exports = (app) => {
                             }
                             else {
                                 res.status(204).send();
-                            };
+                            }
                         });
-                };
+                }
             });
     });
 
@@ -67,7 +66,7 @@ module.exports = (app) => {
                 }
                 else {
                     res.status(207).send()
-                };
+                }
             });
     })
 };

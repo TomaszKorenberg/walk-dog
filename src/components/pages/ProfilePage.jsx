@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import "./ProfilePage.scss";
 import PetsView from "./PetsView";
 import {getToken} from "./../../utils/token";
-import UserView from "./UserView";
+import ViewUserData from "../ViewUserData";
 
 
 const ProfilePage = () => {
@@ -30,7 +30,7 @@ const ProfilePage = () => {
     return (
     <div style={{display:'flex', justifyContent:'space-around'}}>
         <div>
-            <UserView userData={userData}/>
+            <ViewUserData userData={userData}/>
         </div>
         <div>  
             <PetsView userPets={allPets}/>

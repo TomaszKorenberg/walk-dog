@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import {getToken, setToken} from "../../utils/token";
-import WalksPage from "./WalksPage";
-import {Route} from "react-router-dom";
 import InfoModal from "../alerts/InfoModal";
 
 const LoginPage = () => {
@@ -10,17 +8,17 @@ const LoginPage = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [isEmailValid, setIsEmailValid] = useState(true);
-    const [registrationState, setRegistrationState] = useState(true)
-    const changeRegistrationState = () => {registrationState === true ? setRegistrationState(false): setRegistrationState(true);}
+    const [registrationState, setRegistrationState] = useState(true);
+    const changeRegistrationState = () => {registrationState === true ? setRegistrationState(false): setRegistrationState(true)};
 
 
     const onEmailChange = ({target: {value}}) => {
         setEmail(value);
-    }
+    };
 
     const onPasswordChange = ({target: {value}}) => {
         setPassword(value);
-    }
+    };
 
     const checkEmail = (value) => {
         const emailRegEx = /\S+@\S+\.\S+/;
@@ -53,7 +51,7 @@ const LoginPage = () => {
                                 setToken(token);
                                 window.location.href = "./walks";
                             });
-                    };
+                    }
                 });
         }
         else {

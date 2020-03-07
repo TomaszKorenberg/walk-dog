@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-const UserView = ({userData}) => {
+const ViewUserData = ({userData}) => {
 
     const [passForm, setPassForm] = useState(false);
     const showPasswordForm = () => {passForm === false ? setPassForm(true): setPassForm(false);}
@@ -30,4 +30,4 @@ const UserView = ({userData}) => {
     )
 }
 
-export default UserView;
+export default ViewUserData;

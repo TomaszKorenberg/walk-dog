@@ -1,6 +1,6 @@
 import "./DashboardPage.scss";
 import React, {useState, useEffect} from "react";
-import ViewNews from "../NewsView";
+import ViewNews from "../ViewNews";
 import Api from "../../api/api";
 
 const api = new Api();

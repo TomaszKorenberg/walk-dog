@@ -1,0 +1,12 @@
+.news-div {
+  border: solid 1px black;
+  width: 150px;
+}
+
+.news-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}

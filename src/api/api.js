@@ -1,18 +1,16 @@
 import {getToken} from "./../utils/token";
 
 class Api {
-    constructor() {
-    }
 
     walks = () => {
         return fetch('http://localhost:3001/walks', {headers: {'Token': getToken()}})
             .then(response => response.json())
-    }
+    };
 
     blog = () => {
         return fetch('http://localhost:3001/blog')
             .then(response => response.json())
-    }
+    };
 
 }
 
