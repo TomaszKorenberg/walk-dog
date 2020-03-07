@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 
 
-const ViewUserData = ({userData}) => {
+const ViewUserData = ({userInfo}) => {
+
 
     const [passForm, setPassForm] = useState(false);
     const showPasswordForm = () => {passForm === false ? setPassForm(true): setPassForm(false);}
@@ -13,6 +14,7 @@ const ViewUserData = ({userData}) => {
     return (
         <>
         <p>Moje dane:</p>
+            <p>Nazwa użytkownika: {userInfo.user}</p>
         <input style={{display:'flex'}} type="text" disabled placeholder="email"/>
         <input style={{display:'flex'}} type="text" placeholder="imie"/>
         <input style={{display:'flex'}} type="text" placeholder="nazwisko"/>

@@ -25,6 +25,7 @@ const DashboardPage = () => {
     }, []);
 
 
+
     fetch(
         'http://localhost:3001/admin',
         {
@@ -46,6 +47,10 @@ const DashboardPage = () => {
         if(!newsTitle || !newsArticle || !newsAuthor){
             return
         }
+
+
+        //todo: zrobic walidacje pol dodawania artykułu
+
 
         fetch(
             'http://localhost:3001/blog',
@@ -69,17 +74,15 @@ const DashboardPage = () => {
                 <div>
                     <form action="">
                         <label htmlFor="header">Tytuł:</label>
-                        <input type="text" name="add-news" id="header" onChange={onTitleChange}/>
-                        {newsTitle ? null : <p> Uzupełnij wymagane pole! </p>}
+                        <input type="text" name={"add-news"} id={"header"} onChange={onTitleChange}/>
                         <label htmlFor="article">Treść:</label>
-                        <input type="text" name="add-news" id="article" onChange={onArticleChange}/>
-                        {newsArticle ? null : <p> Uzupełnij wymagane pole! </p>}
+                        <textarea name="add-news" id="article" onChange={onArticleChange}/>
                         <label htmlFor="author">Autor:</label>
                         <input type="text" name="add-news" id="author" onChange={onAuthorChange}/>
-                        {newsAuthor ? null : <p> Uzupełnij wymagane pole! </p>}
 
                         {
                             //fixme: poprawić aby po dodaniu artykułu czysciły sie pola formularza i renderowała na nowo tabela
+
                         }
 
                         <button onClick={onSubmit}> Dodaj</button>

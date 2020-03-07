@@ -26,14 +26,18 @@ const verifyToken = (token, cb) => {
             console.log(err.message);
             return cb(false)
         } else {
-            //console.log(data);
             return cb(data)
         }
     })
 };
 
+const decodeToken = (token) => {
+    return jwt.decode(token)
+};
+
 module.exports = {
     createToken,
     authenticationMiddleware,
-    verifyToken
+    verifyToken,
+    decodeToken
 };

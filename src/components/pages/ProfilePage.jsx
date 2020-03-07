@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "./ProfilePage.scss";
-import PetsView from "./PetsView";
+import ViewPets from "../ViewPets";
 import {getToken} from "./../../utils/token";
 import ViewUserData from "../ViewUserData";
 
@@ -18,22 +18,27 @@ const ProfilePage = () => {
     const getPets = () => {
         return fetch('http://localhost:3001/pets', {headers: {'Token': getToken()}})
           .then(response =>  response.json())
+
     };
   
     useEffect(() => {
-      getPets().then((response) => setAllPets(response.rows));
-      getUserData().then((response)=> setUserData(response.rows));
+      getPets().then(response => setAllPets(response));
+      getUserData().then(response => setUserData(response));
+
     }, []);
 
 
-    
     return (
     <div style={{display:'flex', justifyContent:'space-around'}}>
         <div>
-            <ViewUserData userData={userData}/>
+            <ViewUserData userInfo={userData}/>
         </div>
-        <div>  
-            <PetsView userPets={allPets}/>
+        <div>
+            {
+                //fixme: naprawić komponent ViewPets aby wywietlał pieski konkretnego użytkownika
+
+                //<ViewPets userPets={allPets}/>
+            }
         </div>
     </div>
     )

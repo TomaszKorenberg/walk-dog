@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import {getToken} from "../../utils/token";
+import {getToken} from "../utils/token";
 
-const PetsView = ({userPets}) => {
+const ViewPets = ({userPets}) => {
 
     const [dogForm, setDogForm] = useState(false);
     const showAddDog = () => {dogForm === false ? setDogForm(true): setDogForm(false);}
@@ -86,4 +86,4 @@ const PetsView = ({userPets}) => {
 
 }
 
-export default PetsView
+export default ViewPets

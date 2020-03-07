@@ -5,8 +5,9 @@ const token = require('../utils/token');
 module.exports = (app) => {
 
     app.get("/user", (req, res) => {
-        console.log(req.headers.token);
-        res.status(200).send()
+        const decoded = token.decodeToken(req.headers.token);
+        res.send(decoded);
+        res.status(200);
 
     });
 
