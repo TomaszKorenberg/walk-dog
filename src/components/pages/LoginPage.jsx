@@ -83,9 +83,9 @@ const LoginPage = () => {
                         onClick={onSubmit}>
                         Sing in
                     </button>
-                    {registrationState === true ? null : InfoModal("First Time??",
-                        "if you are new here pleas join us first",
-                    "Jouin us!",
+                    {registrationState === true ? null : InfoModal("Nie masz konta?",
+                        "Zarejestruj się!",
+                    "Rejestracja",
                     "./register")}
                 </div>
                 <div>
