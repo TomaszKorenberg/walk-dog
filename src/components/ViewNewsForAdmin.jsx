@@ -4,6 +4,11 @@ import "./ViewNewsForAdmin.scss";
 
 const ViewNewsForAdmin = ({newsItems}) => {
 
+    if (!newsItems) {
+        return (<p>Loading...</p>)
+    }
+
+
     const removeElement = (id) => {
         const element = document.getElementById("news-tr-" + id);
         element.parentNode.removeChild(element)
