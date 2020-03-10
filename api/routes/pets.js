@@ -6,11 +6,21 @@ module.exports = (app) => {
     app.post('/pets', [authenticationMiddleware], function (req, res) {
         console.log(req.body)
 
-        insertPet(req.body)
-            .catch(err => res.status(400).send(err))
-            .then((result) => {
-                res.status(200).send()
-            });
+        checkByEmailIfUserExist(req.body.userInfo.user)
+            .catch(err => {
+                console.log(err);
+                res.status(400).send(err)
+            })
+            .then(result => {
+                insertPet(req.body, result.rows[0].id)
+                    .catch(err => {
+                        console.log(err);
+                        res.status(400).send(err)
+                    })
+                    .then((result) => {
+                        res.status(200).send()
+                    });
+            })
     });
 
     app.get('/pets', [authenticationMiddleware], (req, res) => {

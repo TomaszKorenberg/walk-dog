@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 
 const ViewUserData = ({userInfo}) => {
-
+    console.log(userInfo)
 
     const [passForm, setPassForm] = useState(false);
     const showPasswordForm = () => {passForm === false ? setPassForm(true): setPassForm(false)};

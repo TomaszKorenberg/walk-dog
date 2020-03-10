@@ -3,7 +3,7 @@ Create table pets (
   dog_name varchar (64) not null,
   race varchar (64) not null,
   size varchar (16),
-  age integer,
+  age varchar,
   user_ID INTEGER REFERENCES user(id),
   Primary KEY (ID)
 ) 

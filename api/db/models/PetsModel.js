@@ -1,7 +1,7 @@
 const connection = require('../connection');
 const tableName = 'pets'
 
-const insertPet = (petData) => {
+const insertPet = (petData, userId) => {
     const sql = `
     INSERT INTO ${tableName}
     VALUES(
@@ -10,7 +10,7 @@ const insertPet = (petData) => {
         '${petData.race}',
         '${petData.size}',
         '${petData.age}',
-        12
+        ${userId}
     )
     `;
 
