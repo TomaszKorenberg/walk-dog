@@ -1,6 +1,6 @@
 const userModel = require('../db/models/UserModel');
 const token = require('../utils/token');
-
+const bcrypt = require("bcrypt");
 
 module.exports = (app) => {
 
@@ -11,7 +11,7 @@ module.exports = (app) => {
 
     });
 
-    app.post('/user/login', (req, res) => {
+    app.post('/user/login', async (req, res) => {
 
         userModel.checkByEmailIfUserExist(req.body.email)
             .catch((err) => {
@@ -20,21 +20,18 @@ module.exports = (app) => {
             .then(result => {
                 if (result.rowCount === 0) {
                     res.status(207).send()
-                }
-                else {
+                } else {
                     userModel.checkUserPasswordByEmail(req.body.email)
                         .catch((err) => {
                             console.log(err)
                         })
                         .then(result => {
-                            //todo: zrobić szyfrowanie hasła!
-                            if (result.rows[0].password_salt === req.body.password) {
+                            if (bcrypt.compare(result.rows[0].password_salt, req.body.password)) {
                                 const jwtSignCallback = function (err, token) {
                                     if (err) {
                                         res.status(401).send();
                                         console.log(err)
-                                    }
-                                    else {
+                                    } else {
                                         res.send({token: token});
                                         res.status(200);
                                     }
@@ -42,8 +39,7 @@ module.exports = (app) => {
                                 token.createToken({
                                     user: req.body.email,
                                 }, jwtSignCallback)
-                            }
-                            else {
+                            } else {
                                 res.status(204).send();
                             }
                         });
@@ -64,8 +60,7 @@ module.exports = (app) => {
                         .then(() => {
                             res.send({status: "OK"});
                         })
-                }
-                else {
+                } else {
                     res.status(207).send()
                 }
             });
