@@ -1,4 +1,4 @@
-const {insertBlog, getBlogs, deleteBlog} = require('../db/models/BlogModel.js');
+const {insertBlog, getBlogs, getBlog, deleteBlog} = require('../db/models/BlogModel.js');
 
 module.exports = (app) => {
     app.post('/blog', function (req, res) {
@@ -18,6 +18,15 @@ module.exports = (app) => {
             .catch(err => res.status(400).send(err))
             .then((result) => {
                 res.send(result)
+            });
+    });
+
+    app.get('/blog/:articleId', (req, res) => {
+        getBlog(req.params.articleId)
+            .catch(err => res.status(400).send(err))
+            .then((result) => {
+                res.send(result)
+                console.log(result)
             });
     });
 

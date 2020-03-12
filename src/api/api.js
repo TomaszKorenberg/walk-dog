@@ -7,8 +7,13 @@ class Api {
             .then(response => response.json())
     };
 
-    blog = () => {
+    getAllArticles = () => {
         return fetch('http://localhost:3001/blog')
+            .then(response => response.json())
+    };
+
+    getAllArticle = (articleId) => {
+        return fetch('http://localhost:3001/' + articleId)
             .then(response => response.json())
     };
 

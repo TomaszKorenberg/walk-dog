@@ -31,7 +31,7 @@ const getBlogs = () => {
     return connection.query(sql).then((response) =>
     response.rows.map(BlogModel)
     );
-}
+};
 
 
 const getBlog = (id) => {

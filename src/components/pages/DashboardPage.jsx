@@ -10,7 +10,7 @@ const DashboardPage = () => {
     const [allNews, setAllnews] = useState(null);
 
     useEffect(() => {
-        api.blog().then((response) => setAllnews(response));
+        api.getAllArticles().then((response) => setAllnews(response));
     }, []);
 
     return (

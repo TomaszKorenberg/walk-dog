@@ -40,7 +40,7 @@ const DashboardPage = () => {
         };
 
         useEffect(() => {
-            api.blog().then((response) => setAllnews(response));
+            api.getAllArticles().then((response) => setAllnews(response));
         }, []);
 
 
