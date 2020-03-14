@@ -1,6 +1,6 @@
 const userModel = require('../db/models/UserModel');
 const token = require('../utils/token');
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt-nodejs");
 
 module.exports = (app) => {
 
@@ -12,6 +12,7 @@ module.exports = (app) => {
     });
 
     app.post('/user/login', async (req, res) => {
+
         userModel.checkByEmailIfUserExist(req.body.email)
             .catch((err) => {
                 console.log(err)
@@ -25,47 +26,54 @@ module.exports = (app) => {
                             console.log(err)
                         })
                         .then(result => {
-                            const salt =  bcrypt.genSalt(10);
-                            if (bcrypt.compare(salt, req.body.password)) {
-                                const jwtSignCallback = function (err, token) {
-                                    if (err) {
-                                        res.status(401).send();
-                                        console.log(err)
-                                    } else {
-                                        res.send({token: token});
-                                        res.status(200);
-                                    }
-                                };
-                                token.createToken({
-                                    user: req.body.email,
-                                }, jwtSignCallback)
-                            } else {
-                                res.status(204).send();
-                            }
-                        });
+                            bcrypt.compare(req.body.password, result.rows[0].password_hash, function (err, isMatch) {
+                                if (isMatch) {
+                                    const jwtSignCallback = function (err, token) {
+                                        if (err) {
+                                            res.status(401).send();
+                                            console.log(err)
+                                        } else {
+                                            res.send({token: token});
+                                            res.status(200);
+                                        }
+                                    };
+                                    token.createToken({
+                                        user: req.body.email,
+                                    }, jwtSignCallback)
+                                } else {
+                                    res.status(204).send();
+                                }
+                            });
+                        })
                 }
             });
     });
 
-    app.post("/user/register",  (req, res) => {
+    app.post("/user/register", async (req, res) => {
+        const saltRounds = 10;
         userModel.checkByEmailIfUserExist(req.body.email)
             .catch((err) => {
                 console.log(err)
-            })
-            .then(result => {
-                const salt =  bcrypt.genSalt(10);
-                const  hashedPassword = bcrypt.hash(req.body.password,salt);
-                if (result.rowCount === 0) {
-                    userModel
-                        .insertUser(req.body,hashedPassword)
-                        .catch(err => res.status(400).send(err))
-                        .then(() => {
-                            res.send({status: "OK"});
-                        })
-                } else {
-                    res.status(207).send()
-                }
             });
+        bcrypt.genSalt(saltRounds, async function (err, salt) {
+            if (err) {
+                throw err
+            } else {
+                bcrypt.hash(req.body.password, salt, null, async function (err, hash) {
+                    if (err) {
+                        throw err
+                    } else {
+                        req.body.salt = hash;
+                        req.body.password = hash;
+                        userModel
+                            .insertUser(req.body)
+                            .catch(err => res.status(400).send(err))
+                        /* .then(() => {
+                             res.send({status: "OK"});*/
+
+                    }
+                })
+            }
+        })
     })
 };
-

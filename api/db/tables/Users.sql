@@ -1,7 +1,7 @@
 Create table users (
   id SERIAL,
   email varchar(128) unique not NULL,
-  password_salt VARCHAR (16) not NULL,
+  password_salt VARCHAR (128) not NULL,
   password_hash VARCHAR (128) not NULL,
   name varchar (32) not NULL,
   surname varchar (32) not NULL,

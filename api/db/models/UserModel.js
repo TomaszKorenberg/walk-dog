@@ -1,11 +1,11 @@
 const connection = require("../connection.js");
 const tableName = "users";
 
-const insertUser = (userData,password) => {
+const insertUser = (userData) => {
     const sql = `
       INSERT INTO ${tableName}
       VALUES (
-          DEFAULT, '${userData.email}', '${password}', '${userData.password}',
+          DEFAULT, '${userData.email}', '${userData.salt}', '${userData.password}',
            '${userData.name}', '${userData.surname}'
       )
       `;
@@ -34,7 +34,7 @@ const checkByEmailIfUserExist = (email) =>{
 
 const checkUserPasswordByEmail = (email) => {
     const sql = `
-    SELECT password_salt FROM ${tableName} WHERE email = '${email}';
+    SELECT password_hash FROM ${tableName} WHERE email = '${email}';
     `;
     return connection.query(sql);
 };
