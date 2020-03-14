@@ -12,7 +12,6 @@ module.exports = (app) => {
     });
 
     app.post('/user/login', async (req, res) => {
-
         userModel.checkByEmailIfUserExist(req.body.email)
             .catch((err) => {
                 console.log(err)
@@ -26,7 +25,8 @@ module.exports = (app) => {
                             console.log(err)
                         })
                         .then(result => {
-                            if (bcrypt.compare(result.rows[0].password_salt, req.body.password)) {
+                            const salt =  bcrypt.genSalt(10);
+                            if (bcrypt.compare(salt, req.body.password)) {
                                 const jwtSignCallback = function (err, token) {
                                     if (err) {
                                         res.status(401).send();
@@ -47,15 +47,17 @@ module.exports = (app) => {
             });
     });
 
-    app.post("/user/register", (req, res) => {
+    app.post("/user/register",  (req, res) => {
         userModel.checkByEmailIfUserExist(req.body.email)
             .catch((err) => {
                 console.log(err)
             })
             .then(result => {
+                const salt =  bcrypt.genSalt(10);
+                const  hashedPassword = bcrypt.hash(req.body.password,salt);
                 if (result.rowCount === 0) {
                     userModel
-                        .insertUser(req.body)
+                        .insertUser(req.body,hashedPassword)
                         .catch(err => res.status(400).send(err))
                         .then(() => {
                             res.send({status: "OK"});
