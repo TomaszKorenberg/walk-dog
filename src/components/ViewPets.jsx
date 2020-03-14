@@ -24,6 +24,8 @@ const ViewPets = ({userPets, userInfo}) => {
     const onSizeChange = ({target: {value}}) => setSize(value);
     const onAgeChange = ({target: {value}}) => setAge(value);
 
+
+
     const submitDog = () => {
         fetch(
             'http://localhost:3001/pets',
@@ -35,9 +37,7 @@ const ViewPets = ({userPets, userInfo}) => {
                 },
                 body: JSON.stringify({dogName, race, size, age, userInfo})
             }
-        ).then((response) => response.json()).then(() => {
-            window.location.href = "./profile";
-        })
+        ).then(() => {window.location.href = "./profile";})
     };
 
     return (
