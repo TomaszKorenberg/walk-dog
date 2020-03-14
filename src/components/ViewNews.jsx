@@ -10,27 +10,27 @@ const ViewNews = ({newsItems}) => {
     }
 
     return (
-        <>
+
             <div>
                 {
                     // todo:napisać komponent wyświetlający każdy news na nowej stronie po klinięciu na niego
                 }
                 <p>Aktualności:</p><br/>
 
-                {newsItems.map(item =>
-                    <a href={<Article bb={item.id}/>} id={"news-link-id-"}>)
+                {newsItems.map((item) =>
+                        <a href={"/blog/" + item.id} key={item.id}>
                         <div className={"news-container"}>
                             <div key={item.id} className={"news-div"} id={"news-div-id-" + item.id}>
                                 <p><b>{item.header}</b></p>
                                 <p>{item.article}</p>
                             </div>
                         </div>
-                    </a>
-                )}
+                        </a>
 
-
+        )}
             </div>
-        </>
+
+
     )
 };
 

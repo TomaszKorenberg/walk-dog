@@ -13,6 +13,7 @@ import AdminPage from "./components/pages/AdminPage";
 import ProfilePage from "./components/pages/ProfilePage";
 import RegisterPage from "./components/pages/RegisterPage";
 import Footer from "./components/Footer";
+import Article from "./components/pages/Article";
 
 
 
@@ -32,6 +33,7 @@ const App = () => {
                 <Route exact path={"/walks"}><WalksPage/></Route>
                 <Route exact path={"/profile"}><ProfilePage/></Route>
                 <Route exact path={"/admin"}><AdminPage/></Route>
+                <Route exact path={"/blog"}><Article/></Route>
             </Switch>
         </main>
         <Footer/>

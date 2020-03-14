@@ -4,7 +4,6 @@ const {checkByEmailIfUserExist} = require("../db/models/UserModel");
 
 module.exports = (app) => {
     app.post('/pets', [authenticationMiddleware], function (req, res) {
-        console.log(req.body)
 
         checkByEmailIfUserExist(req.body.userInfo.user)
             .catch(err => {
