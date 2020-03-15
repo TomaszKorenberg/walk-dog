@@ -26,7 +26,6 @@ module.exports = (app) => {
             .catch(err => res.status(400).send(err))
             .then((result) => {
                 res.send(result)
-                console.log(result)
             });
     });
 

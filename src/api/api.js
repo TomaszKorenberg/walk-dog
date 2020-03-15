@@ -7,13 +7,18 @@ class Api {
             .then(response => response.json())
     };
 
+    getWalk = (walkId) => {
+        return fetch('http://localhost:3001/walks/' + walkId, {headers: {'Token': getToken()}})
+            .then(response => response.json())
+    };
+
     getAllArticles = () => {
         return fetch('http://localhost:3001/blog')
             .then(response => response.json())
     };
 
-    getAllArticle = (articleId) => {
-        return fetch('http://localhost:3001/' + articleId)
+    getArticle = (articleId) => {
+        return fetch('http://localhost:3001/blog/' + articleId)
             .then(response => response.json())
     };
 

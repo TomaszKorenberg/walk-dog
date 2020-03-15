@@ -8,6 +8,7 @@ import {
 import Header from "./components/Header";
 import DashboardPage from "./components/pages/DashboardPage";
 import WalksPage from "./components/pages/WalksPage";
+import Walk from "./components/pages/Walk";
 import LoginPage from "./components/pages/LoginPage";
 import AdminPage from "./components/pages/AdminPage";
 import ProfilePage from "./components/pages/ProfilePage";
@@ -31,9 +32,11 @@ const App = () => {
                 <Route exact path={"/register"}><RegisterPage/></Route>
                 <Route exact path={"/profile"}><ProfilePage/></Route>
                 <Route exact path={"/walks"}><WalksPage/></Route>
+                <Route exact path={"/walks/:walkId"}><Walk/></Route>
                 <Route exact path={"/profile"}><ProfilePage/></Route>
                 <Route exact path={"/admin"}><AdminPage/></Route>
-                <Route exact path={"/blog/*"}><Article/></Route>
+                <Route exact path={"/blog/:articleId"}><Article/></Route>
+
             </Switch>
         </main>
         <Footer/>

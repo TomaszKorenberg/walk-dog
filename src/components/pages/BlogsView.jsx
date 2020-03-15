@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 const ViewBlogs = ({blogItems}) => (
     <div>
         <p>Aktualności:</p>
-        {console.log(blogItems)}
         <div>
             {
                 blogItems.map((item) => 
