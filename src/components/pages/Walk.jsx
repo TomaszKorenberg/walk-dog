@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
+import Comments from "../Comments";
 import Api from "../../api/api";
-import {getToken} from "../../utils/token";
 
 const api = new Api();
 
@@ -32,8 +32,12 @@ const Walk = () => {
             <p>Godzina: {walk.hour}</p>
             <p>Opis: {walk.description}</p>
 
-
-
+            {
+                //todo: dopisać komponent forum/czatu w spacerze aby ludzie mogli do siebie pisać - przykład:
+                //https://www.qcode.in/learn-react-by-creating-a-comment-app/
+                //https://github.com/saqueib/react-comments
+            }
+            <Comments/>
         </div>
     )
 };

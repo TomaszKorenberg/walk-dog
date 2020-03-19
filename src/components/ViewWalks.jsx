@@ -25,20 +25,28 @@ const ViewWalks = ({walkItems}) => {
                     <th>Opis</th>
                 </tr>
                 </thead>
-
                 <tbody>
 
                 {
                     walkItems.map((item) =>
-                        <a href={"./walks/" + item.id} key={item.id}>
+
                             <tr key={item.id}>
-                                <td>{item.place}</td>
-                                <td>{item.date}</td>
-                                <td>{item.hour}</td>
-                                <td>{item.dogname}</td>
-                                <td>{item.description}</td>
+                                <td>
+                                    <a href={"./walks/" + item.id}>{item.place}</a>
+                                </td>
+                                <td>
+                                    <a href={"./walks/" + item.id}>{item.date}</a>
+                                </td>
+                                <td>
+                                    <a href={"./walks/" + item.id}>{item.hour}</a>
+                                </td>
+                                <td>
+                                    <a href={"./walks/" + item.id}>{item.dogname}</a>
+                                </td>
+                                <td>
+                                    <a href={"./walks/" + item.id}>{item.description}</a>
+                                </td>
                             </tr>
-                        </a>
                     )
                 }
                 </tbody>
@@ -48,8 +56,6 @@ const ViewWalks = ({walkItems}) => {
     )
 };
 
-//todo: dopisać komponet że po kliknięciu na konkretny spacer przejdziemy do nowej strony gdzie będą informacje o tym spacerze
-//todo: dopisać komponent forum/czatu w spacerze aby ludzie mogli do siebie pisać
 
 
 ViewWalks.propTypes = {
