@@ -22,7 +22,8 @@ class Api {
     };
 
     getCommentsByWalkId = (walkId) => {
-        fetch(this.commentsUrl + walkId, {headers: {'Token': getToken()}})
+        return fetch(this.commentsUrl + walkId, {headers: {'Token': getToken()}})
+            .then(response => response.json())
     };
 
     walks = () => {

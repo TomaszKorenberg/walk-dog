@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
-import Comments from "../Comments";
+import Comments from "../Comments/Comments";
 import Api from "../../api/api";
 
 const api = new Api();
@@ -37,7 +37,7 @@ const Walk = () => {
                 //https://www.qcode.in/learn-react-by-creating-a-comment-app/
                 //https://github.com/saqueib/react-comments
             }
-            <Comments/>
+            <Comments walkId={walk.id}/>
         </div>
     )
 };

@@ -20,7 +20,7 @@ module.exports = (app) => {
         getAllCommentsByWalkId(req.params.walkId)
             .catch(err => res.status(400).send(err))
             .then((result) => {
-                res.status(200).send(result.rows[0])
+                res.status(200).send(result.rows)
             })
     });
 

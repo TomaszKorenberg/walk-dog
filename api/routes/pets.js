@@ -22,6 +22,7 @@ module.exports = (app) => {
             })
     });
 
+
     app.get('/pets', [authenticationMiddleware], (req, res) => {
 
         checkByEmailIfUserExist(req.user.user)
