@@ -26,6 +26,7 @@ module.exports = (app) => {
                             console.log(err)
                         })
                         .then(result => {
+
                             bcrypt.compare(req.body.password, result.rows[0].password_hash, function (err, isMatch) {
                                 if (isMatch) {
                                     const jwtSignCallback = function (err, token) {
@@ -39,6 +40,8 @@ module.exports = (app) => {
                                     };
                                     token.createToken({
                                         user: req.body.email,
+                                        nickname: result.rows[0].nickname,
+                                        user_id: result.rows[0].id
                                     }, jwtSignCallback)
                                 } else {
                                     res.status(204).send();

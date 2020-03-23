@@ -6,6 +6,8 @@ const ViewUserData = ({userInfo}) => {
     const [passForm, setPassForm] = useState(false);
     const showPasswordForm = () => {passForm === false ? setPassForm(true): setPassForm(false)};
 
+    console.log(userInfo)
+
     const saveChanges = () => {
         console.log('asd');
     };
@@ -13,7 +15,8 @@ const ViewUserData = ({userInfo}) => {
     return (
         <>
         <p>Moje dane:</p>
-            <p>Nazwa użytkownika: {userInfo.user}</p>
+            <p>Email użytkownika: {userInfo.user}</p>
+            <p>Nickname: {userInfo.nickname}</p>
 
             {
                 //todo: wysłać zapytanie do bazy o dane użytkownika i wyswietlic je w tym komponencie

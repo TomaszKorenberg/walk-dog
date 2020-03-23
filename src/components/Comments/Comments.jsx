@@ -6,24 +6,16 @@ import Api from "../../api/api";
 const api = new Api();
 
 
-const Comments = ({walkId}) => {
+const Comments = ({walkId, user}) => {
 
     const [comments, setComments] = useState(null);
-
 
     useEffect(() => {
         api.getCommentsByWalkId(walkId).then(response => setComments(response));
     }, []);
 
-
-    const state = {
-        comments: [],
-        loading: false
-    };
-
-
-
-    if (state.loading) {
+    console.log(comments)
+    if (!comments) {
         return "Loading..."
     }
 
@@ -42,12 +34,12 @@ const Comments = ({walkId}) => {
                 <div>
                     <div>
 
-                        <WriteComment/>
+                        <WriteComment walkId={walkId} user={user}/>
 
                     </div>
                     <div>
 
-                        <ViewComments comments={comments} state={state}/>
+                        <ViewComments comments={comments}/>
 
                     </div>
                 </div>

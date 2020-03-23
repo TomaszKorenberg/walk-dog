@@ -27,6 +27,8 @@ const LoginPage = () => {
 
     const onSubmit = () => {
         if (checkEmail(email)) {
+
+            //todo: przenieść to do pliku api.js
             fetch(
                 'http://localhost:3001/user/login',
                 {

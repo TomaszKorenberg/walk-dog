@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import "./ViewWalks.scss";
 
 
 const ViewWalks = ({walkItems}) => {
+
 
     if (!walkItems) {
         return (<p>Loading...</p>)

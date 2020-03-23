@@ -2,11 +2,12 @@ const connection = require('../connection');
 const tableName = 'comments';
 
 const insertComment = (data) => {
+
     const sql = `
     INSERT INTO ${tableName}
     VALUES(
         DEFAULT,
-        '${data.data.userid}',
+        '${data.data.nickname}',
         '${data.data.walkid}',
         '${data.data.comment}',
         '${data.data.date}'

@@ -14,6 +14,7 @@ class Api {
 
 
     insertComment = (data) => {
+
         fetch (this.commentsUrl, {
             method: 'POST',
             headers: {'Content-Type': 'application/json', 'Token': getToken()},

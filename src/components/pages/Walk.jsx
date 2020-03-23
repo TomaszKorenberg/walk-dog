@@ -11,11 +11,13 @@ const Walk = () => {
 
     const {walkId} = useParams();
     const [walk, setWalk] = useState(null);
-
+    const [userData, setUserData] = useState([]);
 
 
     useEffect(() => {
         api.getWalk(walkId).then(response => setWalk(response[0]));
+        api.user().then(response => setUserData(response));
+
     }, []);
 
     if (!walk) {
@@ -37,7 +39,7 @@ const Walk = () => {
                 //https://www.qcode.in/learn-react-by-creating-a-comment-app/
                 //https://github.com/saqueib/react-comments
             }
-            <Comments walkId={walk.id}/>
+            <Comments walkId={walk.id} user={userData}/>
         </div>
     )
 };

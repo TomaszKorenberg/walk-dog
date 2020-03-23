@@ -34,7 +34,7 @@ const checkByEmailIfUserExist = (email) =>{
 
 const checkUserPasswordByEmail = (email) => {
     const sql = `
-    SELECT password_hash FROM ${tableName} WHERE email = '${email}';
+    SELECT * FROM ${tableName} WHERE email = '${email}';
     `;
     return connection.query(sql);
 };

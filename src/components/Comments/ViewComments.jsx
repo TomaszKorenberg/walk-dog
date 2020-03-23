@@ -3,9 +3,7 @@ import Comment from "./Comment";
 
 
 
-const ViewComments = ({comments, state}) => {
-
-    console.log(comments);
+const ViewComments = ({comments}) => {
 
     if(!comments){
         return "Loading..."
@@ -24,7 +22,7 @@ const ViewComments = ({comments, state}) => {
             </h5>
 
             {
-                comments.length === 0 && !state.loading ? (
+                comments.length === 0 && comments ? (
                 <div>
                     Napisz pierwszy komentarz
                 </div>

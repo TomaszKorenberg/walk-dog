@@ -5,11 +5,12 @@ const {authenticationMiddleware} = require('../utils/token');
 
 module.exports = (app) => {
     app.post('/comments', [authenticationMiddleware], function (req, res) {
+
         insertComment(req.body)
             .catch((err) => {
                 res.status(400).send(err)
             }).then((result) => {
-                res.send(result)
+            res.send(result)
         })
 
 
