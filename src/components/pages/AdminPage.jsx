@@ -72,14 +72,8 @@ const DashboardPage = () => {
                 setIsAuthorValid(false);
             }
 
-            fetch(
-                'http://localhost:3001/blog',
-                {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({newsTitle, newsArticle, newsAuthor})
-                }
-            ).then((response) => {
+            api.insertArticle(newsTitle, newsArticle, newsAuthor)
+                .then((response) => {
                 if (response.status !== 200) {
                     alert("something went wrong, 401")
                 }

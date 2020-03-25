@@ -1,6 +1,9 @@
 import React, {useState} from "react";
 import "./RegisterPage.scss";
 import InfoModal from "../alerts/InfoModal";
+import Api from "../../api/api";
+
+const api = new Api()
 
 
 const RegisterPage = () => {
@@ -44,14 +47,7 @@ const RegisterPage = () => {
             return setIsEmailValid(false);
         }
 
-        fetch(
-            'http://localhost:3001/user/register',
-            {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({email, password, name, surname})
-            }
-        )
+        api.registerUser(email, password, name, surname)
             .then((response) => {
                 if (response.status === 207) {
                     changeRegistrationState()

@@ -1,6 +1,9 @@
 import React, {useState} from "react";
 import {getToken, setToken} from "../../utils/token";
 import InfoModal from "../alerts/InfoModal";
+import Api from "../../api/api";
+
+const api = new Api();
 
 const LoginPage = () => {
 
@@ -29,17 +32,8 @@ const LoginPage = () => {
         if (checkEmail(email)) {
 
             //todo: przenieść to do pliku api.js
-            fetch(
-                'http://localhost:3001/user/login',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Token': getToken()
-                        },
-                    body: JSON.stringify({email, password})
-                    }
-                )
+
+            api.loginUser(email, password)
                 .then((response) => {
                     if(response.status === 204) {
                         alert("wrong password") }

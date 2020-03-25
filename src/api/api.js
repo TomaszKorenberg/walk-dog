@@ -2,24 +2,28 @@ import {getToken} from "./../utils/token";
 
 class Api {
 
-    constructor () {
+    constructor() {
         this.port = 3001;
         this.baseUrl = 'http://localhost' + ":";
-        this.walksUrl = this.baseUrl + this.port +'/walks/';
-        this.blogUrl = this.baseUrl + this.port +'/blog/';
-        this.userUrl = this.baseUrl + this.port +'/user/';
-        this.petsUrl = this.baseUrl + this.port +'/pets/';
-        this.commentsUrl = this.baseUrl + this.port +'/comments/';
+        this.walksUrl = this.baseUrl + this.port + '/walks/';
+        this.blogUrl = this.baseUrl + this.port + '/blog/';
+        this.userUrl = this.baseUrl + this.port + '/user/';
+        this.petsUrl = this.baseUrl + this.port + '/pets/';
+        this.commentsUrl = this.baseUrl + this.port + '/comments/';
+        this.registerUrl = this.baseUrl + this.port + '/register/';
+        this.loginUrl = this.baseUrl + this.port + '/login/';
+        this.contentTypeJSON = "application/json";
     }
 
 
     insertComment = (data) => {
 
-        fetch (this.commentsUrl, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Token': getToken()},
-            body: JSON.stringify({data})
-        })
+        return fetch(this.commentsUrl, {
+                method: 'POST',
+                headers: {'Content-Type': this.contentTypeJSON, 'Token': getToken()},
+                body: JSON.stringify({data})
+            }
+        )
     };
 
     getCommentsByWalkId = (walkId) => {
@@ -37,6 +41,17 @@ class Api {
             .then(response => response.json())
     };
 
+    insertWalk = (place, date, hour, dogName, description) => {
+        return fetch(
+            this.walksUrl,
+            {
+                method: 'POST',
+                headers: {'Content-Type': this.contentTypeJSON, 'Token': getToken()},
+                body: JSON.stringify({place, date, hour, dogName, description})
+            }
+        )
+    };
+
     getAllArticles = () => {
         return fetch(this.blogUrl)
             .then(response => response.json())
@@ -47,14 +62,74 @@ class Api {
             .then(response => response.json())
     };
 
+    insertArticle = (newsTitle, newsArticle, newsAuthor) => {
+    return fetch(
+    this.blogUrl,
+{
+    method: 'POST',
+    headers: {'Content-Type': this.contentTypeJSON},
+    body: JSON.stringify({newsTitle, newsArticle, newsAuthor})
+}
+)};
+
+    deleteArticle = (id) => {
+        return fetch(
+            this.blogUrl,
+            {
+                method: 'DELETE',
+                headers: {'Content-Type': this.contentTypeJSON},
+                body: JSON.stringify({id})
+            }
+        )
+    };
+
     user = () => {
         return fetch(this.userUrl, {headers: {'Token': getToken()}})
             .then(response => response.json())
     };
 
-    userPets = (userName) => {
+    registerUser = (email, password, name, surname) => {
+        return fetch(
+            this.registerUrl,
+            {
+                method: 'POST',
+                headers: {'Content-Type': this.contentTypeJSON},
+                body: JSON.stringify({email, password, name, surname})
+            }
+        )
+    };
+
+    loginUser = (email, password) => {
+        return fetch(
+            this.loginUrl,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': this.contentTypeJSON,
+                    'Token': getToken()
+                },
+                body: JSON.stringify({email, password})
+            }
+        )
+    };
+
+    insertPet = (dogName, race, size, age, userInfo) => {
+        return fetch(
+            this.petsUrl,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': this.contentTypeJSON,
+                    'Token': getToken()
+                },
+                body: JSON.stringify({dogName, race, size, age, userInfo})
+            }
+        )
+    };
+
+    getUserPets = (userName) => {
         return fetch(this.petsUrl, {headers: {'Token': getToken(), "User": userName}})
-            .then(response =>  response.json())
+            .then(response => response.json())
     }
 
 

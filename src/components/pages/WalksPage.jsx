@@ -36,15 +36,8 @@ const WalksPage = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        fetch(
-            'http://localhost:3001/walks',
-            {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json', 'Token': getToken()},
-                body: JSON.stringify({place, date, hour, dogName, description})
-                //todo dodac user id do zapytania db oraz do
-            }
-        ).then((response) => response.json).then(() => {
+        api.insertWalk(place, date, hour, dogName, description)
+            .then((response) => response.json).then(() => {
             window.location.href = "/walks";
         });
     };

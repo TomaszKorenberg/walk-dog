@@ -1,5 +1,8 @@
 import React, {useState} from "react";
-import {getToken} from "../utils/token";
+import Api from "../api/api";
+
+const api = new Api();
+
 
 const ViewPets = ({userPets, userInfo}) => {
 
@@ -27,17 +30,7 @@ const ViewPets = ({userPets, userInfo}) => {
 
 
     const submitDog = () => {
-        fetch(
-            'http://localhost:3001/pets',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Token': getToken()
-                },
-                body: JSON.stringify({dogName, race, size, age, userInfo})
-            }
-        ).then(() => {window.location.href = "./profile";})
+        api.insertPet(dogName, race, size, age, userInfo).then(() => {window.location.href = "./profile";})
     };
 
     return (

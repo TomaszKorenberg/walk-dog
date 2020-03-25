@@ -13,7 +13,7 @@ const ProfilePage = () => {
 
 
     useEffect(() => {
-        api.userPets(userData).then(response => setAllPets(response));
+        api.getUserPets(userData).then(response => setAllPets(response));
         api.user().then(response => setUserData(response));
 
     }, []);

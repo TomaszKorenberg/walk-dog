@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./ViewNewsForAdmin.scss";
+import Api from "../api/api";
+
+const api = new Api();
 
 const ViewNewsForAdmin = ({newsItems}) => {
 
@@ -16,19 +19,11 @@ const ViewNewsForAdmin = ({newsItems}) => {
 
     const onDeleteButton = (id) => {
         removeElement(id);
-        fetch(
-            'http://localhost:3001/blog',
-            {
-                method: 'DELETE',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({id})
-            }
-        )
-
+        api.deleteArticle(id);
     };
 
 
-    if (!newsItems){
+    if (!newsItems) {
         return (<p>Loading...</p>)
     }
 
@@ -50,7 +45,7 @@ const ViewNewsForAdmin = ({newsItems}) => {
 
                 {
                     newsItems.map((item) =>
-                        <tr key={item.id} id={"news-tr-"+ item.id}>
+                        <tr key={item.id} id={"news-tr-" + item.id}>
                             <td>{item.id}</td>
                             <td>{item.header}</td>
                             <td>{item.author}</td>
@@ -68,10 +63,9 @@ const ViewNewsForAdmin = ({newsItems}) => {
             <br/>
 
 
-
-
-            </div>
-    )};
+        </div>
+    )
+};
 
 ViewNewsForAdmin.propTypes = {
     newsItems: PropTypes.array
