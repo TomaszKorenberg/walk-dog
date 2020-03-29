@@ -11,7 +11,7 @@ class Api {
         this.petsUrl = this.baseUrl + this.port + '/pets/';
         this.commentsUrl = this.baseUrl + this.port + '/comments/';
         this.registerUrl = this.baseUrl + this.port + '/register/';
-        this.loginUrl = this.baseUrl + this.port + '/login/';
+        this.loginUrl = this.baseUrl + this.port + '/user/login/';
         this.contentTypeJSON = "application/json";
     }
 

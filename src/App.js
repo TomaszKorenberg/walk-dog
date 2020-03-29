@@ -1,5 +1,5 @@
 import "./components/App.scss";
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,33 +15,49 @@ import ProfilePage from "./components/pages/ProfilePage";
 import RegisterPage from "./components/pages/RegisterPage";
 import Footer from "./components/Footer";
 import Article from "./components/pages/Article";
+import Api from "./api/api";
 
-
+const api = new Api();
 
 const App = () => {
 
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        api.user().then(response => setUserData(response));
+
+    }, []);
 
 
-  return (
-    <Router>
-        <Header/>
-        <main>
-            <Switch>
-                <Route exact path={"/"}><DashboardPage/></Route>
-                <Route exact path={"/login"}><LoginPage/></Route>
-                <Route exact path={"/register"}><RegisterPage/></Route>
-                <Route exact path={"/profile"}><ProfilePage/></Route>
-                <Route exact path={"/walks"}><WalksPage/></Route>
-                <Route exact path={"/walks/:walkId"}><Walk/></Route>
-                <Route exact path={"/profile"}><ProfilePage/></Route>
-                <Route exact path={"/admin"}><AdminPage/></Route>
-                <Route exact path={"/blog/:articleId"}><Article/></Route>
+    const UserContext = React.createContext(userData);
 
-            </Switch>
-        </main>
-        <Footer/>
-    </Router>
-  );
+
+    const isAdmin = false;
+    const isLogged = true;
+
+
+    return (
+        <Router>
+
+            <Header/>
+            <main>
+                <Switch>
+                    <UserContext.Provider value={userData}>
+                    <Route exact path={"/"}><DashboardPage/></Route>
+                    <Route exact path={"/login"}><LoginPage/></Route>
+                    <Route exact path={"/register"}><RegisterPage/></Route>
+                    <Route exact path={"/profile"}>{isLogged ? <ProfilePage/> : <LoginPage/>}</Route>
+                    <Route exact path={"/walks"}>{isLogged ? <WalksPage/> : <LoginPage/>}</Route>
+                    <Route exact path={"/walks/:walkId"}>{isLogged ? <Walk/> : <LoginPage/>}</Route>
+                    <Route exact path={"/admin"}>{isAdmin ? <AdminPage/> : <LoginPage/>}</Route>
+                    <Route exact path={"/blog/:articleId"}><Article/></Route>
+                    </UserContext.Provider>
+                </Switch>
+            </main>
+            <Footer/>
+
+        </Router>
+    );
 };
 
 export default App;

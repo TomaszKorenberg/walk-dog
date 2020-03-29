@@ -6,7 +6,6 @@ const ViewUserData = ({userInfo}) => {
     const [passForm, setPassForm] = useState(false);
     const showPasswordForm = () => {passForm === false ? setPassForm(true): setPassForm(false)};
 
-    console.log(userInfo)
 
     const saveChanges = () => {
         console.log('asd');

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import "./ProfilePage.scss";
 import ViewPets from "../ViewPets";
 import ViewUserData from "../ViewUserData";
@@ -8,9 +8,11 @@ const api = new Api();
 
 const ProfilePage = () => {
 
-    const [allPets, setAllPets] = useState([]);
-    const [userData, setUserData] = useState([]);
 
+
+
+    const [allPets, setAllPets] = useState(null);
+    const [userData, setUserData] = useState(null);
 
     useEffect(() => {
         api.getUserPets(userData).then(response => setAllPets(response));
@@ -18,6 +20,9 @@ const ProfilePage = () => {
 
     }, []);
 
+    if (!allPets || !userData){
+        return "Loading..."
+    }
 
     return (
         <div style={{display: 'flex', justifyContent: 'space-around'}}>

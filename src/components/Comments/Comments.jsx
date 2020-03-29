@@ -14,7 +14,6 @@ const Comments = ({walkId, user}) => {
         api.getCommentsByWalkId(walkId).then(response => setComments(response));
     }, []);
 
-    console.log(comments)
     if (!comments) {
         return "Loading..."
     }
