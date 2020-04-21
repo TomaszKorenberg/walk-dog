@@ -1,0 +1,24 @@
+
+
+.newsWrapper{
+  display:flex;
+  flex-wrap: wrap;
+  height: 100%;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.newsDiv {
+  border-radius: 10px;
+  padding: 15px;
+  min-width: 25vw;
+  width: 150px;
+  margin: 0 25px 25px 0 ;
+  text-decoration: none;
+  background-color: white;
+}
+
+.newsLink{
+  text-decoration: none;
+  color: black;
+}

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import ViewComments from "./ViewComments";
-import WriteComment from "./WriteComment";
+import ViewComments from "./ViewComments/ViewComments";
+import WriteComment from "./WriteComment/WriteComment";
 import Api from "../../api/api";
 
 const api = new Api();
@@ -12,7 +12,7 @@ const Comments = ({walkId, user}) => {
 
     useEffect(() => {
         api.getCommentsByWalkId(walkId).then(response => setComments(response));
-    }, []);
+    });
 
     if (!comments) {
         return "Loading..."
