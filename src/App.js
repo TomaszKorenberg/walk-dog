@@ -14,7 +14,7 @@ import AdminPage from "./pages/AdminPage/AdminPage";
 import ProfilePage from "./pages/ProfilPage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import Footer from "./components/Footer/Footer";
-import Article from "./components/NewsArticles/Article/Article";
+import Article from "./components/ViewNews/Article/Article";
 import Api from "./api/api";
 
 const api = new Api();
@@ -32,7 +32,7 @@ const App = () => {
     const UserContext = React.createContext(userData);
 
 
-    const isAdmin = false;
+    const isAdmin = true;
     const isLogged = true;
 
 

@@ -12,7 +12,7 @@ const Article = () => {
 
     useEffect(() => {
         api.getArticle(articleId).then(response => setArticle(response[0]));
-    }, []);
+    }, []   );
 
     if (!article) {
         return (<p>Loading...</p>)

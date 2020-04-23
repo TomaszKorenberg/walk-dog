@@ -1,4 +1,4 @@
-import "./DashboardPage.module.scss";
+import styles from "./DashboardPage.module.scss";
 import React, {useState, useEffect} from "react";
 import ViewNews from "../../components/ViewNews/ViewNews";
 import Api from "../../api/api";
@@ -11,10 +11,10 @@ const DashboardPage = () => {
 
     useEffect(() => {
         api.getAllArticles().then((response) => setAllnews(response));
-    }, []);
+    }, [])
 
     return (
-        <>
+        <div className={styles.wrapper}>
         <h2>
             Witaj na WalkDog!
         </h2>
@@ -22,7 +22,7 @@ const DashboardPage = () => {
         <div>
             <ViewNews newsItems={allNews}/>
         </div>
-        </>)
+        </div>)
 };
 
 export default DashboardPage;
