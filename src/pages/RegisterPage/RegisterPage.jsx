@@ -12,12 +12,16 @@ const RegisterPage = () => {
     const [matchPassword, setMatchPassword] = useState(null);
     const [name, setName] = useState(null);
     const [surname, setSurname] = useState(null);
+    const [nickname, setNickname] = useState(null);
+
 
     const onEmailChange = ({target: {value}}) => setEmail(value);
     const onPasswordChange = ({target: {value}}) => setPassword(value);
     const onSecondPasswordChange = ({target: {value}}) => setMatchPassword(value);
     const onNameChange = ({target: {value}}) => setName(value);
     const onSurnameChange = ({target: {value}}) => setSurname(value);
+    const onNicknameChange = ({target: {value}}) => setNickname(value);
+
 
 
     const [registrationState, setRegistrationState] = useState(true)
@@ -46,16 +50,16 @@ const RegisterPage = () => {
             return setIsEmailValid(false);
         }
 
-        api.registerUser(email, password, name, surname)
+        api.registerUser(email, password, name, surname, nickname)
             .then((response) => {
                 if (response.status === 207) {
                     changeRegistrationState()
                  }
                 else {
                     response.json()
-                    .then((user) => {
-                        window.location.href = "/login";
-                    });
+                 //    .then((user) => {
+                 //        window.location.href = "/login";
+                 //    });
                  };
             });
     };
@@ -65,15 +69,44 @@ const RegisterPage = () => {
 
             <form action="">
 
-                email: <input id={"email"} type="email" name="email" placeholder={"email"} onChange={onEmailChange}/>
+                email:
+                <input id={"email"}
+                       type="email"
+                       name="email"
+                       placeholder={"email"}
+                       onChange={onEmailChange}/>
                 {isEmailValid ? null : <p> wrong e-mail </p>}
-                Name: <input type="text" name="Name" placeholder={"Name"} onChange={onNameChange}/>
-                Surname: <input type="text" name="Surname" placeholder={"Surname"} onChange={onSurnameChange}/>
-                password: <input type="password" name={"password"} placeholder={"password"}
-                                 onChange={onPasswordChange}/>
+
+                Imię:
+                <input type="text"
+                       name="name"
+                       placeholder={"Name"}
+                       onChange={onNameChange}/>
+
+                Nazwisko:
+                <input type="text"
+                       name="surname"
+                       placeholder={"Surname"}
+                       onChange={onSurnameChange}/>
+
+                Nazwa użytkownika:
+                <input type="text"
+                       name="nickname"
+                       placeholder={"Nazwa użytkownika"}
+                       onChange={onNicknameChange}/>
+
+                Hasło: <input type="password"
+                              name={"password"}
+                              placeholder={"password"}
+                              onChange={onPasswordChange}/>
                 {isPasswordValid ? null : <p>Your password is not strong enough</p>}
-                confirm password: <input id={"password"} type="password" name={"confirm password"}
-                                         placeholder={"confirm password"} onChange={onSecondPasswordChange}/>
+
+                Powtórz Hasło:
+                <input id={"password"}
+                       type="password"
+                       name={"confirm password"}
+                       placeholder={"confirm password"}
+                       onChange={onSecondPasswordChange}/>
 
                 <button onClick={onSubmit}> JOIN</button>
 

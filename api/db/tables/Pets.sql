@@ -4,6 +4,6 @@ Create table pets (
   race varchar (64) not null,
   size varchar (16),
   age varchar,
-  user_ID INTEGER REFERENCES user(id),
+  user_ID INTEGER REFERENCES users(id),
   Primary KEY (ID)
 ) 

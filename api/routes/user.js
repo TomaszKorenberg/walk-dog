@@ -54,6 +54,7 @@ module.exports = (app) => {
 
     app.post("/user/register", async (req, res) => {
         const saltRounds = 10;
+
         userModel.checkByEmailIfUserExist(req.body.email)
             .catch((err) => {
                 console.log(err)
@@ -70,9 +71,10 @@ module.exports = (app) => {
                         req.body.password = hash;
                         userModel
                             .insertUser(req.body)
-                            .catch(err => res.status(400).send(err))
-                        /* .then(() => {
-                             res.send({status: "OK"});*/
+                            .catch(err => {
+                                console.log(err)
+                                res.status(400).send(err)})
+
 
                     }
                 })

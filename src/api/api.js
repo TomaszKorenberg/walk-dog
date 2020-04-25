@@ -10,7 +10,7 @@ class Api {
         this.userUrl = this.baseUrl + this.port + '/user/';
         this.petsUrl = this.baseUrl + this.port + '/pets/';
         this.commentsUrl = this.baseUrl + this.port + '/comments/';
-        this.registerUrl = this.baseUrl + this.port + '/register/';
+        this.registerUrl = this.baseUrl + this.port + '/user/register/';
         this.loginUrl = this.baseUrl + this.port + '/user/login/';
         this.contentTypeJSON = "application/json";
     }
@@ -88,16 +88,17 @@ class Api {
             .then(response => response.json())
     };
 
-    registerUser = (email, password, name, surname) => {
+    registerUser = (email, password, name, surname, nickname) => {
         return fetch(
             this.registerUrl,
             {
                 method: 'POST',
                 headers: {'Content-Type': this.contentTypeJSON},
-                body: JSON.stringify({email, password, name, surname})
+                body: JSON.stringify({email, password, name, surname, nickname})
             }
         )
     };
+
 
     loginUser = (email, password) => {
         return fetch(

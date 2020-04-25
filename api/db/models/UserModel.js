@@ -6,7 +6,7 @@ const insertUser = (userData) => {
       INSERT INTO ${tableName}
       VALUES (
           DEFAULT, '${userData.email}', '${userData.salt}', '${userData.password}',
-           '${userData.name}', '${userData.surname}'
+           '${userData.name}', '${userData.surname}', '${userData.nickname}'
       )
       `;
     return connection.query(sql);
