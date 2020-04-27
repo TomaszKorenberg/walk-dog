@@ -1,0 +1,56 @@
+
+$blue:#5E77FF;
+$dark:#4A4A4A;
+$orange:#EF5350;
+$pastel: #EFEEF8;
+
+
+.main{
+    width:50vw;
+    height: 70vh;
+    margin: auto;
+    padding: 0 20px;  
+    background-color: white;
+    
+    .lockLogin{
+        margin: 30px auto;
+        border-radius: 100%;
+        background-color: #EFEEF8;
+        width: 60px;
+        display: inline-flex; 
+    }
+    .lock{
+        height: 60px;
+        width: 60px;
+      }   
+
+    .login{
+        margin: 20px 80px;        
+    }
+
+    label{        
+        display: block;       
+    }
+
+    input{
+        text-decoration: none;
+        padding: 10px 0;
+        margin: 10px auto;
+        width: 100%;
+    }
+
+    button {
+        display: block; 
+    }
+
+    .end{
+        margin: 40px auto;
+        padding: 10px 0;
+        width: max;
+        background-color: $pastel;
+        text-align: center;
+    
+    }
+   
+
+}

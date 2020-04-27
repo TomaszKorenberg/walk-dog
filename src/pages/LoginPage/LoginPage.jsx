@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {setToken} from "../../utils/token";
 import InfoModal from "../../components/InfoModal/InfoModal";
 import Api from "../../api/api";
+import lock from "../../assets/img/lock.svg";
+import styles from "./LoginPage.module.scss";
 
 const api = new Api();
 
@@ -58,8 +60,15 @@ const LoginPage = () => {
 
     return (
         <>
-            <div>
-                <div>Login</div>
+            <div  className ={styles.main}>
+                <div className ={styles.lockLogin}>
+                    <img alt={"lock"}
+                         src={lock}
+                         className={styles.lock}
+                    />                
+                    <div className = {styles.login}>Login</div>
+                </div> 
+               
                 <div>
                     <label htmlFor="email_field">Email address</label>
                     <input
@@ -88,7 +97,7 @@ const LoginPage = () => {
                     "Rejestracja",
                     "./register")}
                 </div>
-                <div>
+                <div className={styles.end}>
 
                     New to Walk Dog? <a href="/register">Sing up!</a>
                 </div>
