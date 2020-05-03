@@ -4,53 +4,89 @@ $dark:#4A4A4A;
 $orange:#EF5350;
 $pastel: #EFEEF8;
 
-
-.main{
-    width:50vw;
-    height: 70vh;
-    margin: auto;
-    padding: 0 20px;  
-    background-color: white;
-    
-    .lockLogin{
-        margin: 30px auto;
-        border-radius: 100%;
-        background-color: #EFEEF8;
-        width: 60px;
-        display: inline-flex; 
-    }
-    .lock{
-        height: 60px;
-        width: 60px;
-      }   
-
-    .login{
-        margin: 20px 80px;        
-    }
-
-    label{        
-        display: block;       
-    }
-
-    input{
-        text-decoration: none;
-        padding: 10px 0;
-        margin: 10px auto;
-        width: 100%;
-    }
-
-    button {
-        display: block; 
-    }
-
-    .end{
-        margin: 40px auto;
-        padding: 10px 0;
-        width: max;
-        background-color: $pastel;
-        text-align: center;
-    
-    }
-   
-
+main{
+    background-color: white; 
 }
+
+.wrap{
+    width: 400px;
+    background-color: white;  
+    margin: 0 auto;  
+}
+
+    .flex{
+        background-color: white;  
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px 0;
+        align-items: center;      
+    }
+       
+        .lock{
+            background-image: url("../../assets/img/lock.svg");
+            background-repeat: no-repeat;
+            background-position: 35% 45%;  
+            background-color: $pastel;
+            border-radius: 100%;
+            margin: 5px 0;
+            width: 40px;
+            height: 40px;            
+        }   
+        .login{
+            margin-left: 20px;        
+           
+        }
+
+        input{
+ 
+            background-color: $pastel;
+            border: 0;
+            border-radius: 5px;
+            outline: 0;
+            width: 100%;
+            height: 40px;
+            margin: 10px 0;        
+        }
+        .eye{  
+            background-image: url("../../assets/img/eye.svg");
+            background-repeat: no-repeat;
+            background-position: 95% 50%; 
+        }
+
+        span{
+            width:50%;
+    
+        }
+        button { 
+            font-size: 19px;
+            color: white;
+            background-color: $blue;
+            width: 30%;
+            height: 40px;
+            border: none;
+            border-radius: 4px;  
+            margin-left: 60px;
+            margin-right: 0px;   
+            &:hover{
+                background-color: $orange;     
+            }    
+
+        }
+        .end{           
+            background-color: $pastel;
+            width:100%;
+            height: 60px;    
+            display: flex;       
+            justify-content: center;
+            align-items: center;
+            & a:hover{
+                background-color: $orange;
+                color: white;
+                padding: 10px;
+                border-radius: 4px;  
+            }
+        }
+
+     
+

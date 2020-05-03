@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125" x="0px" y="0px"><defs><style>.cls-1{fill:none;stroke:#5E77FF;stroke-linecap:round;stroke-linejoin:round;stroke-width:3px;}</style></defs><title>lock</title><g><rect class="cls-1" x="32.5" y="48.69" width="35.5" height="21.78" rx="2.85" ry="2.85"/><path class="cls-1" d="M60.34,48.69V39.61A10.09,10.09,0,0,0,50.25,29.52h0A10.09,10.09,0,0,0,40.16,39.61v9.09"/></g></svg>
+<svg width="40" height="50" xmlns="http://www.w3.org/2000/svg">
+
+  <style>.cls-1{fill:none;stroke:#5E77FF;stroke-linecap:round;stroke-linejoin:round;stroke-width:3px;}</style>
+
+ <title>lock</title>
+
+ <g>
+
+  <g id="svg_1" stroke="null">
+ <rect xmlns="http://www.w3.org/2000/svg" stroke="null" id="svg_2" ry="2.85" rx="2.85" height="13.137139" width="18.999992" y="22.582858" x="10.750013" class="cls-1"/>
+ 
+  <path xmlns="http://www.w3.org/2000/svg" stroke="null" id="svg_3" d="m25.650287,22.582858l0,-5.476826a5.400277,6.086029 0 0 0 -5.400277,-6.086029l0,0a5.400277,6.086029 0 0 0 -5.400277,6.086029l0,5.482855" class="cls-1"/>
+
+   </g>
+ </g>
+</svg>
