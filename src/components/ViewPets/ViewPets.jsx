@@ -69,7 +69,7 @@ const ViewPets = ({userPets, userInfo}) => {
                         <input
                             style={{display: 'flex'}}
                             type="text"
-                            placeholder="imie psa"
+                            placeholder="imię psa"
                             name="dogName"
                             id="dogName"
                             onChange={onDogNameChange}

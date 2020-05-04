@@ -5,7 +5,7 @@ import styles from "./ViewNews.module.scss";
 
 const ViewNews = ({newsItems}) => {
     if (!newsItems) {
-        return (<p>Loading...</p>)
+        return (<p>Ładuję...</p>)
     }
 
     return (

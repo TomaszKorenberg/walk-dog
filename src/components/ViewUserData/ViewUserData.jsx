@@ -21,7 +21,7 @@ const ViewUserData = ({userInfo}) => {
                 //todo: wysłać zapytanie do bazy o dane użytkownika i wyswietlic je w tym komponencie
             }
         <input style={{display:'flex'}} type="text" disabled placeholder="email"/>
-        <input style={{display:'flex'}} type="text" placeholder="imie"/>
+        <input style={{display:'flex'}} type="text" placeholder="imię"/>
         <input style={{display:'flex'}} type="text" placeholder="nazwisko"/>
         <button onClick={saveChanges}>Edytuj dane</button>
         <button style={{display:'flex'}} onClick={showPasswordForm} >Zmień hasło</button>

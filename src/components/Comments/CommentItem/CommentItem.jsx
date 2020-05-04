@@ -3,7 +3,7 @@ import React from "react";
 const CommentItem = ({comment}) => {
 
     if(!comment){
-        return "Loading..."
+        return "Ładuję..."
     }
 
     return (

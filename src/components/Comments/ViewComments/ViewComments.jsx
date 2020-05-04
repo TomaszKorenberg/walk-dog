@@ -6,7 +6,7 @@ import CommentItem from "../CommentItem/CommentItem";
 const ViewComments = ({comments}) => {
 
     if(!comments){
-        return "Loading..."
+        return "Ładuję..."
     }
 
     return (

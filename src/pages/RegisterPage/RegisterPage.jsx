@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import InfoModal from "../../components/InfoModal/InfoModal";
 import Api from "../../api/api";
+import styles from "./RegisterPage.module.scss";
+import eye from "../../assets/img/eye.svg";
 
 const api = new Api();
 
@@ -64,59 +66,75 @@ const RegisterPage = () => {
             });
     };
     return (
+        <div className={styles.wrap}>
         <div id={"formDiv"}>
-            <h2> JOIN US !</h2>
+            <h2> DOŁĄCZ DO NAS !</h2>
 
             <form action="">
 
-                email:
+               <span> email:</span>
                 <input id={"email"}
                        type="email"
                        name="email"
                        placeholder={"email"}
-                       onChange={onEmailChange}/>
+                       onChange={onEmailChange}
+                       className={styles.input}/>
                 {isEmailValid ? null : <p> wrong e-mail </p>}
 
-                Imię:
+                <span> Imię:</span>
                 <input type="text"
                        name="name"
-                       placeholder={"Name"}
-                       onChange={onNameChange}/>
+                       placeholder={"Imę"}
+                       onChange={onNameChange}
+                       className={styles.input}/>
 
-                Nazwisko:
+                <span> Nazwisko:</span>
                 <input type="text"
                        name="surname"
-                       placeholder={"Surname"}
-                       onChange={onSurnameChange}/>
+                       placeholder={"Nazwisko"}
+                       onChange={onSurnameChange}
+                       className={styles.input}/>
 
-                Nazwa użytkownika:
+                <span> Nazwa użytkownika:</span>
                 <input type="text"
                        name="nickname"
                        placeholder={"Nazwa użytkownika"}
-                       onChange={onNicknameChange}/>
+                       onChange={onNicknameChange}
+                       className={styles.input}/>
 
-                Hasło: <input type="password"
+                <span> Hasło: </span>
+                <input type="password"
                               name={"password"}
-                              placeholder={"password"}
-                              onChange={onPasswordChange}/>
-                {isPasswordValid ? null : <p>Your password is not strong enough</p>}
+                              placeholder={"hasło"}
+                              onChange={onPasswordChange}
+                              className={styles.input}/>
+                {isPasswordValid ? null : <p>Twoje hasło jest zbyt słabe</p>}
 
-                Powtórz Hasło:
+                <img alt={"eye"}
+                      src={eye}
+                      className={styles.eye}
+                />  
+
+                <span className={styles.span}> Powtórz Hasło:</span>
                 <input id={"password"}
                        type="password"
                        name={"confirm password"}
-                       placeholder={"confirm password"}
-                       onChange={onSecondPasswordChange}/>
+                       placeholder={"powtórz hasło"}
+                       onChange={onSecondPasswordChange}
+                       className={styles.input}/>
 
-                <button onClick={onSubmit}> JOIN</button>
+                <button 
+                    onClick={onSubmit}
+                    className={styles.button}> JOIN</button>
 
 
             </form>
 
-            {registrationState === true ? null : InfoModal("Damn",
-                "it looks like you already exist in our base if you forgot your password try to restore it",
-                "restore password",
+            {registrationState === true ? null : InfoModal("Kurczaczki",
+                "wygląda na to, że taki użytkownik już jest w bazie, jeśi nie pamiętasz hasła możesz je odzyskać",
+                "resetuj hasło",
                 "./register")}
+        </div>
         </div>
 
 

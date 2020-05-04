@@ -15,7 +15,7 @@ const Article = () => {
     }, []   );
 
     if (!article) {
-        return (<p>Loading...</p>)
+        return (<p>Ładuję...</p>)
     }
     return (
 

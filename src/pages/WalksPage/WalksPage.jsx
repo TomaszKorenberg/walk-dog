@@ -49,15 +49,15 @@ const WalksPage = () => {
             <p>Jeśli chcesz dodac swój spacer wypełnij poniższe pola</p>
             <fieldset>
                 <form>
-                    <label htmlFor="dog_name_field">Dog name</label>
+                    <label htmlFor="dog_name_field">Imę psa</label>
                     <input type="text" id="dog_name" name="dog_name" onChange={onDogNameChange}/>
-                    <label htmlFor="date_field">Date of walk</label>
+                    <label htmlFor="date_field">Data spaceru</label>
                     <input type="text" name="date" onChange={onDateChange}/>
-                    <label htmlFor="hour_field">Hour of walk</label>
+                    <label htmlFor="hour_field">Godzina spaceru</label>
                     <input type="text" name="hour" onChange={onHourChange}/>
-                    <label htmlFor="place_field">Place of walk</label>
+                    <label htmlFor="place_field">Miejsce spaceru</label>
                     <input type="text" name="place" onChange={onPlaceChange}/>
-                    <label htmlFor="Description">Description of walk</label>
+                    <label htmlFor="Description">Dodatkowe info</label>
                     <input type="text" name="description" onChange={onDescriptionChange}/>
                     <button onClick={onSubmit}>Zapisz</button>
                 </form>

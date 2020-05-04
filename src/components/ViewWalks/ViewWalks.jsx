@@ -7,7 +7,7 @@ const ViewWalks = ({walkItems}) => {
 
 
     if (!walkItems) {
-        return (<p>Loading...</p>)
+        return (<p>Ładuję...</p>)
     }
 
     return (

@@ -3,7 +3,7 @@ import {setToken} from "../../utils/token";
 import InfoModal from "../../components/InfoModal/InfoModal";
 import Api from "../../api/api";
 import styles from "./LoginPage.module.scss";
-// import eye from "../../assets/img/eye.svg";
+import eye from "../../assets/img/eye.svg";
 
 const api = new Api();
 
@@ -31,7 +31,7 @@ const LoginPage = () => {
         return emailRegEx.test(value);
     };
 
-    const onSubmit = () => {
+    const onSubmit = () => {    
         if (checkEmail(email)) {
 
             //todo: przenieść to do pliku api.js
@@ -67,43 +67,46 @@ const LoginPage = () => {
                     </div>                    
                     <div>
                         <div  className = {styles.flex}>
-                            <label htmlFor="email_field">Email address</label>
+                            <label htmlFor="email_field">email</label>
                             <input
                                 type="text"
                                 id="email_field"
                                 name="email"
                                 onChange={onEmailChange}
-                                placeholder="mail@gmail.com" required
+                                placeholder="email" required
+                                className = {styles.input}
                             />
-                            {isEmailValid ? null : <p style={{color: "red"}}>check your email adress and password</p>}
+                            {isEmailValid ? null : <p style={{color: "red"}}>Niepoprawny email lub hasło</p>}
                         </div>   
                         <div  className = {styles.flex}> 
-                            <label htmlFor="password_field">Password</label>
+                            <label htmlFor="password_field">Hasło</label>
                             <input
                                 type="password"
                                 id="password_field"
-                                name="password"
+                                name="Hasło"
                                 onChange={onPasswordChange}
-                                className = {styles.eye}
+                                className = {styles.input}
                             />
-                                {/* <img alt={"eye"}
+                                <img alt={"eye"}
                                 src={eye}
                                 className={styles.eye}
-                                />     */}
+                                />    
                                 {
                                      //fixme: obsługa podglądu wpisanego hasła
                                 }
                         </div>   
                         <div className={styles.flex}>
-                            <span>Forgot Password ? </span>
+                            <span className = {styles.span}>Przypomneć hasło ? </span>
                             <button
-                                onClick={onSubmit}>
-                                Sing in
+                                onClick={onSubmit}
+                                className={styles.button}
+                                >
+                                Zaloguj
                             </button>
                         </div>
                         {
                             //fixme: powinien się wyświetlac jak jest bledny login lub hasło a wyswietla sie tylko przy blednym loginie
-                           
+                           // fixme: obsługa przypomnienia hasła
                         }
 
                     
@@ -112,9 +115,9 @@ const LoginPage = () => {
                         "Rejestracja",
                         "./register")}
                     </div>
-                    <div className={styles.end}>
+                    <div className={styles.button, styles.end}>
 
-                      <p> New to Walk Dog?  <a href="/register">Sing up!</a></p>
+                      <p> Jesteś nwoy na Walk Dog ?   <a href="/register">  Zarejestruj się !</a></p>
                     </div>
                 
             </div>

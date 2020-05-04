@@ -51,7 +51,7 @@ const WriteComment = ({walkId, user}) => {
                 <div>
             <textarea
                 onChange={onCommentChange}
-                placeholder="Treśc komentarza"
+                placeholder="Treść komentarza"
                 rows="5"
             />
                 </div>

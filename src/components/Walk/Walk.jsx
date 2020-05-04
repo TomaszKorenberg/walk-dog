@@ -21,7 +21,7 @@ const Walk = () => {
     }, []);
 
     if (!walk) {
-        return (<p>Loading walk...</p>)
+        return (<p>Ładuję spacery...</p>)
     }
     return (
 

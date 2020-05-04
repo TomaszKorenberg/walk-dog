@@ -24,7 +24,7 @@ const ViewNewsForAdmin = ({newsItems}) => {
 
 
     if (!newsItems) {
-        return (<p>Loading...</p>)
+        return (<p>Ładuję...</p>)
     }
 
     return (
