@@ -28,7 +28,7 @@ const App = () => {
 
     }, []);
 
-
+    {console.log(userRole)}
 
     return (
         <Router>
