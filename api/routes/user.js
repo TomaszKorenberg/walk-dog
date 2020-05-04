@@ -12,12 +12,13 @@ module.exports = (app) => {
     });
 
     app.post('/user/login', async (req, res) => {
-
+        console.log(req.body)
         userModel.checkByEmailIfUserExist(req.body.email)
             .catch((err) => {
                 console.log(err)
             })
             .then(result => {
+                console.log(result)
                 if (result.rowCount === 0) {
                     res.status(207).send()
                 } else {
@@ -41,7 +42,8 @@ module.exports = (app) => {
                                     token.createToken({
                                         user: req.body.email,
                                         nickname: result.rows[0].nickname,
-                                        user_id: result.rows[0].id
+                                        user_id: result.rows[0].id,
+                                        role: result.rows[0].role
                                     }, jwtSignCallback)
                                 } else {
                                     res.status(204).send();

@@ -14,8 +14,6 @@ const LoginPage = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [isEmailValid, setIsEmailValid] = useState(true);
-    const [registrationState, setRegistrationState] = useState(true);
-    const changeRegistrationState = () => {registrationState === true ? setRegistrationState(false): setRegistrationState(true)};
 
 
     const onEmailChange = ({target: {value}}) => {
@@ -40,10 +38,7 @@ const LoginPage = () => {
                 .then((response) => {
                     if(response.status === 204) {
                         alert("wrong password") }
-                    else if (response.status === 207){
-                        changeRegistrationState()
 
-                    }
                     else {
                         response.json()
                             .then(({token}) => {
@@ -109,15 +104,11 @@ const LoginPage = () => {
                            // fixme: obsługa przypomnienia hasła
                         }
 
-                    
-                        {registrationState === true ? null : InfoModal("Nie masz konta?",
-                            "Zarejestruj się!",
-                        "Rejestracja",
-                        "./register")}
-                    </div>
-                    <div className={styles.button, styles.end}>
 
-                      <p> Jesteś nwoy na Walk Dog ?   <a href="/register">  Zarejestruj się !</a></p>
+                    </div>
+                    <div className={(styles.button, styles.end)}>
+
+                      <p> Jesteś nwoy na Walk Dog?   <a href="/register">  Zarejestruj się !</a></p>
                     </div>
                 
             </div>

@@ -1,14 +1,15 @@
 {
   "DB": {
-    "user": "postgres",
-    "host": "104.155.98.249",
-    "database": "postgres",
-    "password": "FIXME!!!",
-    "port": 5432
+    "user": "ornrddlialgoqn",
+    "host": "ec2-79-125-26-232.eu-west-1.compute.amazonaws.com",
+    "database": "d7ach7r5oiu0rs",
+    "password": "!!!FIXME!!!",
+    "port": 5432,
+    "ssl": true
   },
   "JWT": {
-    "jwt_secret": "FIXME!!!",
-    "token_time": 1000
+    "jwt_secret": "!!!FIXME!!!",
+    "token_time": 10000
   },
   "Server": {
     "port": 3001

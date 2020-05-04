@@ -45,7 +45,7 @@ const ViewNewsForAdmin = ({newsItems}) => {
 
                 {
                     newsItems.map((item) =>
-                        <tr key={item.id} id={"news-tr-" + item.id}>
+                        <tr key={"key-" + item.id} id={"news-tr-" + item.id}>
                             <td>{item.id}</td>
                             <td>{item.header}</td>
                             <td>{item.author}</td>

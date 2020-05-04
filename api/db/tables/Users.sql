@@ -10,7 +10,8 @@ Create table users (
   postal_code varchar (32),
   street_name varchar (64),
   stree_number varchar (16),
-  local_number varcha(16),
+  local_number varchar(16),
   gender VARCHAR(16),
+  role varchar default 'user';
   primary key (id)
 ) 

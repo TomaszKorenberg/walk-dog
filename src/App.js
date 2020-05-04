@@ -21,19 +21,13 @@ const api = new Api();
 
 const App = () => {
 
-    const [userData, setUserData] = useState(null);
+    const [userRole, setUserRole] = useState(null);
 
     useEffect(() => {
-        api.user().then(response => setUserData(response));
+        api.user().then(response => setUserRole(response.role));
 
     }, []);
 
-
-    const UserContext = React.createContext(userData);
-
-
-    const isAdmin = true;
-    const isLogged = true;
 
 
     return (
@@ -42,16 +36,14 @@ const App = () => {
             <Header/>
             <main>
                 <Switch>
-                    <UserContext.Provider value={userData}>
-                    <Route exact path={"/"}><DashboardPage/></Route>
-                    <Route exact path={"/login"}><LoginPage/></Route>
-                    <Route exact path={"/register"}><RegisterPage/></Route>
-                    <Route exact path={"/profile"}>{isLogged ? <ProfilePage/> : <LoginPage/>}</Route>
-                    <Route exact path={"/walks"}>{isLogged ? <WalksPage/> : <LoginPage/>}</Route>
-                    <Route exact path={"/walks/:walkId"}>{isLogged ? <Walk/> : <LoginPage/>}</Route>
-                    <Route exact path={"/admin"}>{isAdmin ? <AdminPage/> : <LoginPage/>}</Route>
-                    <Route exact path={"/blog/:articleId"}><Article/></Route>
-                    </UserContext.Provider>
+                        <Route exact path={"/"}><DashboardPage/></Route>
+                        <Route exact path={"/login"}><LoginPage/></Route>
+                        <Route exact path={"/register"}><RegisterPage/></Route>
+                        <Route exact path={"/profile"}>{userRole ? <ProfilePage/>: <LoginPage/>}</Route>
+                        <Route exact path={"/walks"}>{userRole ? <WalksPage/> : <LoginPage/>}</Route>
+                        <Route exact path={"/walks/:walkId"}>{userRole ? <Walk/> : <LoginPage/>}</Route>
+                        <Route exact path={"/admin"}>{userRole === "admin" ? <AdminPage/> : <LoginPage/>}</Route>
+                        <Route exact path={"/blog/:articleId"}><Article/></Route>
                 </Switch>
             </main>
             <Footer/>
