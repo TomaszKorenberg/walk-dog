@@ -15,9 +15,11 @@ import ProfilePage from "./pages/ProfilPage/ProfilePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import Footer from "./components/Footer/Footer";
 import Article from "./components/ViewNews/Article/Article";
+import AppContext from "./components/ContextApp/ContextApp";
 import Api from "./api/api";
 
 const api = new Api();
+
 
 const App = () => {
 
@@ -28,26 +30,31 @@ const App = () => {
 
     }, []);
 
-    {console.log(userRole)}
+    const context = {
+        loggedUser: userRole
+    }
 
     return (
         <Router>
+            <AppContext.Provider value={context}>
+                <Header/>
+                <main>
+                    <Switch>
 
-            <Header/>
-            <main>
-                <Switch>
                         <Route exact path={"/"}><DashboardPage/></Route>
                         <Route exact path={"/login"}><LoginPage/></Route>
                         <Route exact path={"/register"}><RegisterPage/></Route>
-                        <Route exact path={"/profile"}>{userRole ? <ProfilePage/>: <LoginPage/>}</Route>
+                        <Route exact path={"/profile"}>{userRole ? <ProfilePage/> : <LoginPage/>}</Route>
                         <Route exact path={"/walks"}>{userRole ? <WalksPage/> : <LoginPage/>}</Route>
                         <Route exact path={"/walks/:walkId"}>{userRole ? <Walk/> : <LoginPage/>}</Route>
                         <Route exact path={"/admin"}>{userRole === "admin" ? <AdminPage/> : <LoginPage/>}</Route>
                         <Route exact path={"/blog/:articleId"}><Article/></Route>
-                </Switch>
-            </main>
-            <Footer/>
+                        <Route exact path={"/logout"}>{"LOGOUT"}</Route>
 
+                    </Switch>
+                </main>
+                <Footer/>
+            </AppContext.Provider>
         </Router>
     );
 };
