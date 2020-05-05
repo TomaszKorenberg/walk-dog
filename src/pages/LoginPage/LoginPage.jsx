@@ -29,6 +29,15 @@ const LoginPage = () => {
         return emailRegEx.test(value);
     };
 
+    const showPassword = () => {
+        let password = document.getElementById("password_field");       
+        if (password.type === "password") {
+            password.type = "text";
+        } else {
+            password.type = "password";
+        }
+      };
+
     const onSubmit = () => {    
         if (checkEmail(email)) {
 
@@ -52,6 +61,8 @@ const LoginPage = () => {
             setIsEmailValid(false);
         }
     };
+
+   
 
     return (
         <>
@@ -85,10 +96,8 @@ const LoginPage = () => {
                                 <img alt={"eye"}
                                 src={eye}
                                 className={styles.eye}
-                                />    
-                                {
-                                     //fixme: obsługa podglądu wpisanego hasła
-                                }
+                                onClick={showPassword}
+                                />                                 
                         </div>   
                         <div className={styles.flex, styles.buttonWrap}>
                             <span className = {styles.span}>Przypomneć hasło ? </span>
