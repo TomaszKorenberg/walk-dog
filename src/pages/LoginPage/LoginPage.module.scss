@@ -9,7 +9,9 @@ $pastel: #EFEEF8;
 .wrap{
     width: 400px;
     background-color: white;  
-    margin: 0 auto;  
+    margin: 20px auto; 
+    border-radius: 10px; 
+    border: 10px solid white; 
 }
 
     .flex{
@@ -17,8 +19,9 @@ $pastel: #EFEEF8;
         text-align: center;
         display: flex;
         flex-wrap: wrap;
-        margin: 25px 0;
-        align-items: center;      
+        align-items: center;   
+        padding: 1rem;
+        
     }
        
         .lock{
@@ -49,14 +52,23 @@ $pastel: #EFEEF8;
         }
         .eye{   
             position: relative;
-            left: 360px;
-            bottom: 40px;            
+            left: 310px;
+            bottom: 40px;
+            margin-bottom: -25px;            
+        }
+
+     
+
+        .buttonWrap{
+            margin-top: 5px;
+            margin-bottom: 35px;     
         }
 
         .span{
-            width:50%;
-    
+            width:50%;   
+            margin-left: 5%;
         }
+
         .button { 
             font-size: 19px;
             color: white;
@@ -64,27 +76,31 @@ $pastel: #EFEEF8;
             width: 30%;
             height: 40px;
             border: none;
-            border-radius: 4px;  
+            border-radius: 5px;  
             margin-left: 60px;
             margin-right: 0px;   
             &:hover{
-                background-color: $orange;     
+                background-color: $orange;                  
             }    
 
         }
         .end{           
             background-color: $pastel;
+            border: 5px solid white;
+            border-top: none;
             width:100%;
             height: 60px;    
             display: flex;       
             justify-content: center;
-            align-items: center;
+            align-items: center;           
             & a:hover{
                 background-color: $orange;
                 color: white;
-                padding: 10px;
-                border-radius: 4px;  
+                padding: 8px;
+                border-radius: 4px;
+                text-decoration: none;                
             }
+        
         }
 
      

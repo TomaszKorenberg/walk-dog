@@ -8,8 +8,9 @@ $pastel: #EFEEF8;
 .wrap{
     width: 400px;
     background-color: white;  
-    margin: 0 auto;  
-
+    margin: 10px auto;
+    padding: 2rem;
+    border-radius: 10px;
 
     .flex{
         background-color: white;  
@@ -55,7 +56,7 @@ $pastel: #EFEEF8;
 
     .eye{   
         position: relative;
-        left: 360px;
+        left: 300px;
         bottom: 40px;            
     }
 

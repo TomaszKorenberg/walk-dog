@@ -90,7 +90,7 @@ const LoginPage = () => {
                                      //fixme: obsługa podglądu wpisanego hasła
                                 }
                         </div>   
-                        <div className={styles.flex}>
+                        <div className={styles.flex, styles.buttonWrap}>
                             <span className = {styles.span}>Przypomneć hasło ? </span>
                             <button
                                 onClick={onSubmit}
@@ -108,7 +108,7 @@ const LoginPage = () => {
                     </div>
                     <div className={(styles.button, styles.end)}>
 
-                      <p> Jesteś nwoy na Walk Dog?   <a href="/register">  Zarejestruj się !</a></p>
+                      <p> Jesteś gotowy na Walk Dog?   <a href="/register">  Zarejestruj się !</a></p>
                     </div>
                 
             </div>
