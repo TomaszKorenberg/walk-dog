@@ -4,6 +4,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Redirect,
 } from "react-router-dom";
 import Header from "./components/Header/Header";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
@@ -32,7 +33,8 @@ const App = () => {
 
     const context = {
         loggedUser: userRole
-    }
+    };
+
 
     return (
         <Router>
@@ -42,14 +44,14 @@ const App = () => {
                     <Switch>
 
                         <Route exact path={"/"}><DashboardPage/></Route>
-                        <Route exact path={"/login"}><LoginPage/></Route>
-                        <Route exact path={"/register"}><RegisterPage/></Route>
-                        <Route exact path={"/profile"}>{userRole ? <ProfilePage/> : <LoginPage/>}</Route>
-                        <Route exact path={"/walks"}>{userRole ? <WalksPage/> : <LoginPage/>}</Route>
-                        <Route exact path={"/walks/:walkId"}>{userRole ? <Walk/> : <LoginPage/>}</Route>
-                        <Route exact path={"/admin"}>{userRole === "admin" ? <AdminPage/> : <LoginPage/>}</Route>
-                        <Route exact path={"/blog/:articleId"}><Article/></Route>
-                        <Route exact path={"/logout"}>{"LOGOUT"}</Route>
+                        <Route path={"/login"}><LoginPage/></Route>
+                        <Route path={"/register"}><RegisterPage/></Route>
+                        <Route path={"/profile"}>{userRole ? <ProfilePage/> : <LoginPage/>}</Route>
+                        <Route path={"/walks"}>{userRole ? <WalksPage/> : <LoginPage/>}</Route>
+                        <Route path={"/walks/:walkId"}>{userRole ? <Walk/> : <LoginPage/>}</Route>
+                        <Route path={"/admin"}>{userRole === "admin" ? <AdminPage/> : <LoginPage/>}</Route>
+                        <Route path={"/blog/:articleId"}><Article/></Route>
+                        <Route path={"/logout"}><Redirect to="/" /></Route>
 
                     </Switch>
                 </main>

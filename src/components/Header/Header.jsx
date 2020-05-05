@@ -1,8 +1,16 @@
 import styles from "./Header.module.scss";
 import React from "react";
 import AppContext from "../../components/ContextApp/ContextApp";
-import { NavLink} from "react-router-dom";
+import { NavLink, Redirect} from "react-router-dom";
 import logo from "../../assets/img/logo.svg"
+
+
+
+const logout = () => {
+    localStorage.removeItem("token")
+
+
+};
 
 
 const Header = () => (
@@ -42,10 +50,9 @@ const Header = () => (
                              to={"/login"}>Login</NavLink>
                 </li>
                     ):(
-                        <li className={styles.menuLi}>
-                            <NavLink
-                                     className={styles.menuLi}
-                                     to={"/logout"}>Wyloguj</NavLink>
+                        <li className={styles.menuLi}
+                                     onClick={logout}>
+                            <a className={styles.menuLi} href={"/"}>Wyloguj</a>
                         </li>
                     )}
                 {!context.loggedUser
