@@ -42,6 +42,15 @@ const RegisterPage = () => {
     };
     const arePasswordsEqual = () => password === matchPassword;
 
+    const showPassword = () => {
+        let password = document.getElementById("password_field");       
+        if (password.type === "password") {
+            password.type = "text";
+        } else {
+            password.type = "password";
+        }
+      };
+
     const onSubmit = (e) => {
         e.preventDefault();
         if (
@@ -106,6 +115,7 @@ const RegisterPage = () => {
                 <input type="password"
                               name={"password"}
                               placeholder={"hasło"}
+                              id="password_field"
                               onChange={onPasswordChange}
                               className={styles.input}/>
                 {isPasswordValid ? null : <p>Twoje hasło jest zbyt słabe</p>}
@@ -113,6 +123,7 @@ const RegisterPage = () => {
                 <img alt={"eye"}
                       src={eye}
                       className={styles.eye}
+                      onClick={showPassword}
                 />  
 
                 <span className={styles.span}> Powtórz Hasło:</span>
