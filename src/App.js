@@ -45,12 +45,11 @@ const App = () => {
                         <Route exact path={"/"}><DashboardPage/></Route>
                         <Route path={"/login"}><LoginPage/></Route>
                         <Route path={"/register"}><RegisterPage/></Route>
-                        <Route path={"/profile"}>{userRole ? <ProfilePage/> : <LoginPage/>}</Route>
-                        <Route path={"/walks"}>{userRole ? <WalksPage/> : <LoginPage/>}</Route>
-                        <Route path={"/walks/:walkId"}>{userRole ? <Walk/> : <LoginPage/>}</Route>
-                        <Route path={"/admin"}>{userRole === "admin" ? <AdminPage/> : <LoginPage/>}</Route>
+                        <Route path={"/profile"}>{userRole ? <ProfilePage/> : <Redirect to="/login"/>}</Route>
+                        <Route path={"/walks"}>{userRole ? <WalksPage/> : <Redirect to="/login"/>}</Route>
+                        <Route path={"/walks/:walkId"}>{userRole ? <Walk/> : <Redirect to="/login"/>}</Route>
+                        <Route path={"/admin"}>{userRole === "admin" ? <AdminPage/> : <Redirect to="/login"/>}</Route>
                         <Route path={"/blog/:articleId"}><Article/></Route>
-                        <Route path={"/logout"}><Redirect to="/" /></Route>
 
                     </Switch>
                 </main>
