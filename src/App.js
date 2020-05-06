@@ -35,7 +35,6 @@ const App = () => {
         loggedUser: userRole
     };
 
-
     return (
         <Router>
             <AppContext.Provider value={context}>
