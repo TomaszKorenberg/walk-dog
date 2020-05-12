@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ViewWalks from "../../components/ViewWalks/ViewWalks";
 import Api from "../../api/api";
+import styles from "./WalksPage.module.scss";
 
 const api = new Api();
 
@@ -41,28 +42,32 @@ const WalksPage = () => {
     };
 
 
-    return (
-        <div className={"container"}>
-            <ViewWalks walkItems={allWalks}/>
+    return (    
+        <div className={"container", styles.wrap}>
+            <div className={styles.margin}>
+                <ViewWalks walkItems={allWalks}/>
+            </div>
 
-
-            <p>Jeśli chcesz dodac swój spacer wypełnij poniższe pola</p>
-            <fieldset>
+        <div className={styles.margin}>
+            <p className={styles.margin} > Jeśli chcesz dodac swój spacer wypełnij poniższe pola:</p>
+            <fieldset className={styles.fieldset} >
                 <form>
-                    <label htmlFor="dog_name_field">Imę psa</label>
-                    <input type="text" id="dog_name" name="dog_name" onChange={onDogNameChange}/>
-                    <label htmlFor="date_field">Data spaceru</label>
-                    <input type="text" name="date" onChange={onDateChange}/>
-                    <label htmlFor="hour_field">Godzina spaceru</label>
-                    <input type="text" name="hour" onChange={onHourChange}/>
-                    <label htmlFor="place_field">Miejsce spaceru</label>
-                    <input type="text" name="place" onChange={onPlaceChange}/>
-                    <label htmlFor="Description">Dodatkowe info</label>
-                    <input type="text" name="description" onChange={onDescriptionChange}/>
-                    <button onClick={onSubmit}>Zapisz</button>
+                    <label className={styles.label} htmlFor="dog_name_field">Imę psa</label>
+                    <input className={styles.input} type="text" id="dog_name" name="dog_name" onChange={onDogNameChange}/>
+                    <label className={styles.label}  htmlFor="date_field">Data spaceru</label>
+                    <input className={styles.input} type="text" name="date" onChange={onDateChange}/>
+                    <label className={styles.label}  htmlFor="hour_field">Godzina spaceru</label>
+                    <input className={styles.input} type="text" name="hour" onChange={onHourChange}/>
+                    <label className={styles.label}  htmlFor="place_field">Miejsce spaceru</label>
+                    <input className={styles.input} type="text" name="place" onChange={onPlaceChange}/>
+                    <label className={styles.label}  htmlFor="Description">Dodatkowe info</label>
+                    <input className={styles.input} type="text" name="description" onChange={onDescriptionChange}/>
+                    <button className={styles.button} onClick={onSubmit}>Zapisz</button>
                 </form>
             </fieldset>
-        </div>)
+        </div>
+        </div>
+    )
 };
 
 export default WalksPage;
