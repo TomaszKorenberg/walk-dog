@@ -1,0 +1,35 @@
+$blue:#5E77FF;
+$dark:#4A4A4A;
+$orange:#EF5350;
+$pastel: #EFEEF8;
+
+.margin{
+  margin: 15px;
+}
+.h3{
+  padding-top:15px;
+}
+.table{
+  border: none;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;  
+}
+
+.tableHead > th {
+  background-color: $blue;  
+  border: 1px solid blue;
+  color: $pastel;
+  padding: 5px 10px;
+}
+
+.tableLine > td{
+  min-width: 150px;
+  padding: 10px 20px;
+  text-overflow: ellipsis;
+  border: 1px solid lightgrey;
+}
+
+.tableLine:nth-child(odd){
+  background-color: $pastel;
+}

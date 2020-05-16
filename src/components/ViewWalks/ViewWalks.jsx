@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./ViewWalks.scss";
+import styles from "./ViewWalks.module.scss";
 
 
 const ViewWalks = ({walkItems}) => {
@@ -13,13 +13,13 @@ const ViewWalks = ({walkItems}) => {
     return (
 
 
-        <div>
-            <p>Aktualne spacery:</p>
-            <br/>
-            <table id={"walks-table"}>
+        <div className = {styles.margin}>
+            <h3 className = {styles.h3}>Aktualne spacery:</h3>
+            
+            <table id={"walks-table"} className = {styles.table}>
                 <thead>
-                <tr>
-                    <th>Miejsce</th>
+                <tr className = {styles.tableHead}>
+                    <th >Miejsce</th>
                     <th>Data</th>
                     <th>Godzina</th>
                     <th>Imię psa</th>
@@ -31,7 +31,7 @@ const ViewWalks = ({walkItems}) => {
                 {
                     walkItems.map((item) =>
 
-                            <tr key={item.id}>
+                            <tr key={item.id} className = {styles.tableLine}>
                                 <td>
                                     <a href={"./walks/" + item.id}>{item.place}</a>
                                 </td>
@@ -52,7 +52,7 @@ const ViewWalks = ({walkItems}) => {
                 }
                 </tbody>
             </table>
-            <br/>
+           
         </div>
     )
 };
