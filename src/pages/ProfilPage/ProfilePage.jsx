@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import ViewPets from "../../components/ViewPets/ViewPets";
 import ViewUserData from "../../components/ViewUserData/ViewUserData";
 import Api from "../../api/api";
+import style from "./ProfilePage.module.scss";
 
 const api = new Api();
 
@@ -24,11 +25,11 @@ const ProfilePage = () => {
     }
 
     return (
-        <div style={{display: 'flex', justifyContent: 'space-around'}}>
-            <div>
+        <div className={style.wrap}>
+            <div className={style.flex}>
                 <ViewUserData userInfo={userData}/>
             </div>
-            <div>
+            <div className={style.flex}>
                 <ViewPets userPets={allPets} userInfo={userData}/>
 
             </div>

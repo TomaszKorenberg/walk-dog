@@ -1,0 +1,20 @@
+$blue:#5E77FF;
+$dark:#4A4A4A;
+$orange:#EF5350;
+$pastel: #EFEEF8;
+
+
+
+.wrap{
+    width: 400px;
+    background-color: white;  
+    margin: 10px auto;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .flex{
+        background-color: white;     
+    }
+}
