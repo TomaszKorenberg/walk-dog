@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Api from "../../api/api";
+import style from "./ViewPets.module.scss";
 
 const api = new Api();
 
@@ -34,40 +35,53 @@ const ViewPets = ({userPets, userInfo}) => {
     };
 
     return (
-        <div>
-            <p>Moje psy:</p>
-            <table>
-                <thead>
-                <tr>
+        <div className={style.flex}>   
+            <h3>Moje psy:</h3>
+            <button className = {style.button} onClick={showAddDog}>Dodaj psa</button>            
+            <table className={style.table} >
+                <thead >
+                <tr className = {style.tableHead}>
                     <th>Psiak</th>
-                    <th>Działania</th>
-                </tr>
+                    <th>Rasa</th>
+                    <th>Wiek</th>
+                    <th>Rozmiar</th>  
+                    <th></th>                 
+                 </tr>
                 </thead>
-                <tbody>
+                <tbody >
                 {userPets.map((item) =>
-                    <tr key={item.id}>
+                    <tr key={item.id} className ={style.tBody}>
                         <td>
                             {item.dog_name}
+                        </td>
+                        <td>
+                            {item.race}
+                        </td>
+                        <td>
+                            {item.age}
+                        </td>
+                        <td>
+                            {item.size}
                         </td>
                         <td>
                             {
                                 //todo: zrobić komponent do edytowania psiaka
                             }
-                            <button>Edytuj</button>
+                            <button className = {style.buttonTable}>Edytuj</button>
                             {
                                 //todo: obsługę usuwania psiaka
                             }
-                            <button>Usuń</button>
+                            <button className = {style.buttonTable}>Usuń</button>
                         </td>
                     </tr>)}
                 </tbody>
             </table>
-            <button onClick={showAddDog}>Dodaj psa</button>
+           
             {
                 dogForm === false ? null :
-                    <div>
+                    <div className={style.flex}>
                         <input
-                            style={{display: 'flex'}}
+                            className={style.input}
                             type="text"
                             placeholder="imię psa"
                             name="dogName"
@@ -75,7 +89,7 @@ const ViewPets = ({userPets, userInfo}) => {
                             onChange={onDogNameChange}
                         />
                         <input
-                            style={{display: 'flex'}}
+                            className={style.input}
                             type="text"
                             placeholder="rasa"
                             name="race"
@@ -83,7 +97,7 @@ const ViewPets = ({userPets, userInfo}) => {
                             onChange={onRaceChange}
                         />
                         <input
-                            style={{display: 'flex'}}
+                            className={style.input}
                             type="text"
                             placeholder="rozmiar"
                             name="size"
@@ -91,16 +105,16 @@ const ViewPets = ({userPets, userInfo}) => {
                             onChange={onSizeChange}
                         />
                         <input
-                            style={{display: 'flex'}}
+                            className={style.input}
                             type="text"
                             placeholder="wiek"
                             name="age"
                             id="age"
                             onChange={onAgeChange}
                         />
-                        <button
+                        <button 
+                            className={style.button}
                             onClick={submitDog}
-                            style={{display: 'flex'}}
                         >Zapisz psa
                         </button>
                     </div>
