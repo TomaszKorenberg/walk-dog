@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import style from "./ViewUserData.module.scss";
 
 
 const ViewUserData = ({userInfo}) => {
@@ -13,24 +14,28 @@ const ViewUserData = ({userInfo}) => {
 
     return (
         <>
-        <p>Moje dane:</p>
-            <p>Email użytkownika: {userInfo.user}</p>
-            <p>Nickname: {userInfo.nickname}</p>
-
+        
+            <h3>Emai użytkownika: {userInfo.user}</h3>
+            <h3>Nickname: {userInfo.nickname}</h3>
+       
             {
                 //todo: wysłać zapytanie do bazy o dane użytkownika i wyswietlic je w tym komponencie
             }
-        <input style={{display:'flex'}} type="text" disabled placeholder="email"/>
-        <input style={{display:'flex'}} type="text" placeholder="imię"/>
-        <input style={{display:'flex'}} type="text" placeholder="nazwisko"/>
-        <button onClick={saveChanges}>Edytuj dane</button>
-        <button style={{display:'flex'}} onClick={showPasswordForm} >Zmień hasło</button>
+        <input className={style.input} type="text" disabled placeholder="email"/>
+        <input className={style.input} type="text" placeholder="imię"/>
+        <input className={style.input} type="text" placeholder="nazwisko"/>
+        
+        <div className = {style.flex}>
+            <button className={style.button}>Edytuj dane</button>
+            <button className={style.button} onClick={showPasswordForm} >Zmień hasło</button>
+        </div>
+       
         {
         passForm === false ? null : 
         <div>
-            <input style={{display:'flex'}} type="text" placeholder="obecne hasło"/>
-            <input style={{display:'flex'}} type="text" placeholder="nowe hasło"/>
-            <button style={{display:'flex'}}>Zapisz zmiany</button>
+            <input className={style.input} type="text" placeholder="obecne hasło"/>
+            <input className={style.input} type="text" placeholder="nowe hasło"/>
+            <button className={style.button}>Zapisz zmiany</button>
         </div>
         }
         </>
