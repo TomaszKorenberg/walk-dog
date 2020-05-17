@@ -18,7 +18,7 @@ $pastel: #EFEEF8;
 
 .tableHead > th {
   background-color: $blue;  
-  border: 1px solid blue;
+  border: 1px solid $blue;
   color: $pastel;
   padding: 5px 10px;
 }
